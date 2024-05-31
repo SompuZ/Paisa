@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/h.savarala/Documents/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/h.savarala/Desktop/dev/Paisa"
+export "FLUTTER_ROOT=D:\Experiment\Flutter-Github\flutter"
+export "FLUTTER_APPLICATION_PATH=D:\CODE\Flutter\Paisa2\Paisa"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=6.0.8"

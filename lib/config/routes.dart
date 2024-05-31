@@ -225,20 +225,24 @@ class LandingPageData extends GoRouteData {
 }
 
 class TransactionPageData extends GoRouteData {
-  const TransactionPageData({
+   TransactionPageData({
     this.accountId,
     this.categoryId,
     this.transactionId,
     this.transactionType,
+    this.sharedData=''
   });
 
   final int? accountId;
   final int? categoryId;
   final int? transactionId;
   final TransactionType? transactionType;
+  String sharedData;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
+    print("TransactionPageData GOT="+sharedData);
+
     return TransactionPage(
       transactionType: transactionType,
       accountId: accountId,

@@ -1,4 +1,7 @@
 // Flutter imports:
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +26,16 @@ import 'package:paisa/features/intro/data/models/country_model.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/settings/presentation/cubit/settings_cubit.dart';
 import 'package:paisa/main.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+
+import 'core/enum/card_type.dart';
+import 'core/enum/transaction_type.dart';
+import 'features/account/data/data_sources/account_data_source.dart';
+import 'features/account/data/model/account_model.dart';
+import 'features/category/data/data_sources/category_data_source.dart';
+import 'features/category/data/model/category_model.dart';
+import 'features/transaction/data/data_sources/local/transaction_data_manager.dart';
+import 'features/transaction/data/model/transaction_model.dart';
 
 class PaisaApp extends StatefulWidget {
   const PaisaApp({
@@ -33,6 +47,11 @@ class PaisaApp extends StatefulWidget {
 }
 
 class _PaisaAppState extends State<PaisaApp> {
+
+  StreamSubscription<List<SharedMediaFile>>? _intentDataStreamSubscription;
+  File? _image;
+  String? _recognizedText;
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -174,4 +193,46 @@ class _PaisaAppState extends State<PaisaApp> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+
+    // For sharing images coming from outside the app while the app is in the memory
+    _intentDataStreamSubscription = ReceiveSharingIntent.instance.getMediaStream().listen((List<SharedMediaFile> value) {
+      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
+      if (value.isNotEmpty) {
+        setState(() {
+          _image = File(value.first.path);
+        });
+        goRouter.go(const LandingPageData().location);
+        goRouter.push(TransactionPageData(
+            transactionType: TransactionType.expense).location);
+        // _recognizeText(_image!);
+      }
+    }, onError: (err) {
+      print("getMediaStream error: $err");
+    });
+
+    // For sharing images coming from outside the app while the app is closed
+    ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
+      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
+      if (value.isNotEmpty) {
+        setState(() {
+          _image = File(value.first.path);
+        });
+        goRouter.go(const LandingPageData().location);
+        goRouter.push(TransactionPageData(
+            transactionType: TransactionType.expense).location);
+        // _recognizeText(_image!);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _intentDataStreamSubscription?.cancel();
+    super.dispose();
+  }
+
 }

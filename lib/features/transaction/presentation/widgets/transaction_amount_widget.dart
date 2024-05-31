@@ -24,6 +24,11 @@ class TransactionAmountWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //final Parser parser = Parser();
     //final ContextModel contextModel = ContextModel();
+    if(controller.text!=''){
+      double? amount = double.tryParse(controller.text);
+      context.read<TransactionBloc>().transactionAmount = amount;
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: PaisaTextFormField(
@@ -68,6 +73,7 @@ class TransactionAmountWidget extends StatelessWidget {
           }),
         ],
         onChanged: (value) {
+          print("Amount value chaned to "+value);
           double? amount = double.tryParse(value);
           context.read<TransactionBloc>().transactionAmount = amount;
         },

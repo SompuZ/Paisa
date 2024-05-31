@@ -1,10 +1,15 @@
 // Flutter imports:
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 // Project imports:
@@ -40,6 +45,7 @@ class TransactionPage extends StatefulWidget {
 
   @override
   State<TransactionPage> createState() => _TransactionPageState();
+
 }
 
 class _TransactionPageState extends State<TransactionPage> {
@@ -49,8 +55,13 @@ class _TransactionPageState extends State<TransactionPage> {
   final TextEditingController nameController = TextEditingController();
   final TransactionBloc transactionBloc = getIt<TransactionBloc>();
 
+  StreamSubscription<List<SharedMediaFile>>? _intentDataStreamSubscription;
+  File? _image;
+  String? _recognizedText;
+
   @override
   void dispose() {
+    _intentDataStreamSubscription?.cancel();
     nameController.dispose();
     amountController.dispose();
     descriptionController.dispose();
@@ -64,6 +75,88 @@ class _TransactionPageState extends State<TransactionPage> {
       ..add(TransactionEvent.changeTransactionType(
           widget.transactionType ?? TransactionType.expense))
       ..add(TransactionEvent.findTransaction(widget.transactionId));
+    // For sharing images coming from outside the app while the app is in the memory
+    _intentDataStreamSubscription = ReceiveSharingIntent.instance.getMediaStream().listen((List<SharedMediaFile> value) {
+      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
+      if (value.isNotEmpty) {
+        setState(() {
+          _image = File(value.first.path);
+        });
+        _recognizeText(_image!);
+      }
+    }, onError: (err) {
+      print("getMediaStream error: $err");
+    });
+
+    // For sharing images coming from outside the app while the app is closed
+    ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
+      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
+      if (value.isNotEmpty) {
+        setState(() {
+          _image = File(value.first.path);
+        });
+        _recognizeText(_image!);
+      }
+    });
+  }
+
+  Future<void> _recognizeText(File image) async {
+    final textRecognizer = TextRecognizer();
+    final inputImage = InputImage.fromFile(image);
+    final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
+    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>GOT In _TransactionPageState: "+recognizedText.text.toString());
+
+
+    //await transactionDataSource.add(getTransactionModelFromText(recognizedText.text));
+
+    String getTransData(String text){
+      String name='',amount='',details='';
+
+      if(text.contains('GPay')){//Google pay
+
+
+        List<String> parts=text.split('\n');
+        //print("part->"+parts[11]);
+        details=parts[7];
+
+        double money=9999999999;
+        String receiver='';
+        for(String part in parts){
+          if(part.contains("To:")){
+            receiver=part.replaceFirst("To:","");
+            continue;
+          }
+          String currencyStr=double.tryParse(part).toString();
+          if(currencyStr!="null"){
+            double temp=double.parse(currencyStr);
+            if(temp<money) {
+              money=temp;
+            }
+          }
+          print(part+"=="+currencyStr);
+        }
+        amount=money.toString();
+        name=receiver;
+
+      }else if(text.contains('Transaction Successful')){//PhonePay
+        List<String> parts=text.split('\n');
+        //print("part->"+parts[3]);
+        name=parts[3];
+        details=parts[2];
+        amount=parts[parts.length-1];
+
+      }
+      print("GOT Values----->"+name+'@'+amount+'@'+details);
+      return name+'@'+amount+'@'+details;
+    }
+
+    setState(() {
+      List<String> values = getTransData(recognizedText.text).split('@');
+      nameController.text=values[0];
+      amountController.text=values[1];
+      descriptionController.text=values[2];
+    });
+
   }
 
   @override
@@ -103,6 +196,7 @@ class _TransactionPageState extends State<TransactionPage> {
                 offset: state.transaction.name.length,
               );
               amountController.text = state.transaction.currency.toString();
+              print("Amount="+state.transaction.currency.toString());
               amountController.selection = TextSelection.collapsed(
                 offset: state.transaction.currency.toString().length,
               );
@@ -113,6 +207,10 @@ class _TransactionPageState extends State<TransactionPage> {
             }
           },
           builder: (context, state) {
+            if (_recognizedText != '') {
+              context.read<TransactionBloc>().selectedAccountId =1;
+              context.read<TransactionBloc>().selectedCategoryId =1;
+            }
             if (widget.accountId != null) {
               context.read<TransactionBloc>().selectedAccountId =
                   widget.accountId;

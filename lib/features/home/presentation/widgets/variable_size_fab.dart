@@ -27,7 +27,7 @@ class HomeFloatingActionButtonWidget extends StatelessWidget {
         const AddRecurringPageData().push(context);
         break;
       case 0:
-        const TransactionPageData().push(context);
+        TransactionPageData().push(context);
 
         break;
       case 4:
