@@ -21,6 +21,10 @@ class TransactionNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if(controller.text!=''){
+      context.read<TransactionBloc>().expenseName = controller.text;
+    }
+
     return BlocBuilder<TransactionBloc, TransactionState>(
       buildWhen: (oldState, newState) => newState is ChangeTransactionTypeState,
       builder: (context, state) {

@@ -56,12 +56,12 @@ class _TransactionPageState extends State<TransactionPage> {
   final TransactionBloc transactionBloc = getIt<TransactionBloc>();
 
   StreamSubscription<List<SharedMediaFile>>? _intentDataStreamSubscription;
-  File? _image;
   String? _recognizedText;
 
   @override
   void dispose() {
     _intentDataStreamSubscription?.cancel();
+    _recognizedText='';
     nameController.dispose();
     amountController.dispose();
     descriptionController.dispose();
@@ -75,14 +75,16 @@ class _TransactionPageState extends State<TransactionPage> {
       ..add(TransactionEvent.changeTransactionType(
           widget.transactionType ?? TransactionType.expense))
       ..add(TransactionEvent.findTransaction(widget.transactionId));
+
+
     // For sharing images coming from outside the app while the app is in the memory
     _intentDataStreamSubscription = ReceiveSharingIntent.instance.getMediaStream().listen((List<SharedMediaFile> value) {
-      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
+      //print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
+
       if (value.isNotEmpty) {
-        setState(() {
-          _image = File(value.first.path);
-        });
-        _recognizeText(_image!);
+        _recognizeText(File(value.first.path)!);
+        // Tell the library that we are done processing the intent.
+        ReceiveSharingIntent.instance.reset();
       }
     }, onError: (err) {
       print("getMediaStream error: $err");
@@ -90,12 +92,11 @@ class _TransactionPageState extends State<TransactionPage> {
 
     // For sharing images coming from outside the app while the app is closed
     ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
-      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
+      //print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
       if (value.isNotEmpty) {
-        setState(() {
-          _image = File(value.first.path);
-        });
-        _recognizeText(_image!);
+        _recognizeText(File(value.first.path)!);
+        // Tell the library that we are done processing the intent.
+        ReceiveSharingIntent.instance.reset();
       }
     });
   }
@@ -104,26 +105,27 @@ class _TransactionPageState extends State<TransactionPage> {
     final textRecognizer = TextRecognizer();
     final inputImage = InputImage.fromFile(image);
     final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>GOT In _TransactionPageState: "+recognizedText.text.toString());
-
-
-    //await transactionDataSource.add(getTransactionModelFromText(recognizedText.text));
+    print(">>>>>>GOT recognizedText: "+recognizedText.text.toString());
 
     String getTransData(String text){
       String name='',amount='',details='';
 
       if(text.contains('GPay')){//Google pay
 
-
         List<String> parts=text.split('\n');
         //print("part->"+parts[11]);
-        details=parts[7];
+        //details=parts[7];
 
         double money=9999999999;
         String receiver='';
         for(String part in parts){
           if(part.contains("To:")){
             receiver=part.replaceFirst("To:","");
+            continue;
+          }
+          if(part.contains(" AM") || part.contains(" PM") ||
+              part.contains(" am") || part.contains(" pm")){
+            details=part;
             continue;
           }
           String currencyStr=double.tryParse(part).toString();
@@ -141,8 +143,16 @@ class _TransactionPageState extends State<TransactionPage> {
       }else if(text.contains('Transaction Successful')){//PhonePay
         List<String> parts=text.split('\n');
         //print("part->"+parts[3]);
+
+        for(String part in parts){
+          if(part.contains(" AM") || part.contains(" PM") ||
+              part.contains(" am") || part.contains(" pm")){
+            details=part;
+            break;
+          }
+        }
         name=parts[3];
-        details=parts[2];
+        //details=parts[2];
         amount=parts[parts.length-1];
 
       }
@@ -173,6 +183,7 @@ class _TransactionPageState extends State<TransactionPage> {
                 backgroundColor: context.error,
                 color: context.onError,
               );
+              _intentDataStreamSubscription?.cancel();
               context.pop();
             } else if (state is TransactionAdded) {
               final content = state.isAddOrUpdate
@@ -183,6 +194,7 @@ class _TransactionPageState extends State<TransactionPage> {
                 backgroundColor: context.primaryContainer,
                 color: context.onPrimaryContainer,
               );
+              _intentDataStreamSubscription?.cancel();
               context.pop();
             } else if (state is TransactionErrorState) {
               context.showMaterialSnackBar(
@@ -207,9 +219,9 @@ class _TransactionPageState extends State<TransactionPage> {
             }
           },
           builder: (context, state) {
-            if (_recognizedText != '') {
-              context.read<TransactionBloc>().selectedAccountId =1;
-              context.read<TransactionBloc>().selectedCategoryId =1;
+            if (_recognizedText != '') {  // Pre selecting first account and first category
+              //context.read<TransactionBloc>().selectedAccountId =1;
+              //context.read<TransactionBloc>().selectedCategoryId =1;
             }
             if (widget.accountId != null) {
               context.read<TransactionBloc>().selectedAccountId =

@@ -49,8 +49,6 @@ class PaisaApp extends StatefulWidget {
 class _PaisaAppState extends State<PaisaApp> {
 
   StreamSubscription<List<SharedMediaFile>>? _intentDataStreamSubscription;
-  File? _image;
-  String? _recognizedText;
 
   @override
   Widget build(BuildContext context) {
@@ -200,29 +198,21 @@ class _PaisaAppState extends State<PaisaApp> {
 
     // For sharing images coming from outside the app while the app is in the memory
     _intentDataStreamSubscription = ReceiveSharingIntent.instance.getMediaStream().listen((List<SharedMediaFile> value) {
-      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
       if (value.isNotEmpty) {
-        setState(() {
-          _image = File(value.first.path);
-        });
         goRouter.go(const LandingPageData().location);
-        goRouter.push(TransactionPageData(
+        goRouter.push(const TransactionPageData(
             transactionType: TransactionType.expense).location);
         // _recognizeText(_image!);
       }
     }, onError: (err) {
-      print("getMediaStream error: $err");
+      print('getMediaStream error: $err');
     });
 
     // For sharing images coming from outside the app while the app is closed
     ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
-      print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
       if (value.isNotEmpty) {
-        setState(() {
-          _image = File(value.first.path);
-        });
         goRouter.go(const LandingPageData().location);
-        goRouter.push(TransactionPageData(
+        goRouter.push(const TransactionPageData(
             transactionType: TransactionType.expense).location);
         // _recognizeText(_image!);
       }
