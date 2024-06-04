@@ -105,12 +105,12 @@ class _TransactionPageState extends State<TransactionPage> {
     final textRecognizer = TextRecognizer();
     final inputImage = InputImage.fromFile(image);
     final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
-    print(">>>>>>GOT recognizedText: "+recognizedText.text.toString());
+    print('>>>>>> GOT recognizedText:\n${recognizedText.text}');
 
     String getTransData(String text){
       String name='',amount='',details='';
 
-      if(text.contains('GPay')){//Google pay
+      if(text.contains('Google transaction ID')){ //GPay
 
         List<String> parts=text.split('\n');
         //print("part->"+parts[11]);
@@ -140,7 +140,7 @@ class _TransactionPageState extends State<TransactionPage> {
         amount=money.toString();
         name=receiver;
 
-      }else if(text.contains('Transaction Successful')){//PhonePay
+      }else if(text.contains('Transaction Successful')){ //PhonePay
         List<String> parts=text.split('\n');
         //print("part->"+parts[3]);
 
@@ -156,8 +156,8 @@ class _TransactionPageState extends State<TransactionPage> {
         amount=parts[parts.length-1];
 
       }
-      print("GOT Values----->"+name+'@'+amount+'@'+details);
-      return name+'@'+amount+'@'+details;
+      print('GOT Values----->$name@$amount@$details');
+      return '$name@$amount@$details';
     }
 
     setState(() {
