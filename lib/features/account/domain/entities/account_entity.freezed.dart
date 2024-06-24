@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AccountEntity {
-  double? get amount => throw _privateConstructorUsedError;
   String get bankName => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
   CardType get cardType => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
   int? get superId => throw _privateConstructorUsedError;
   bool get isAccountExcluded => throw _privateConstructorUsedError;
 
@@ -36,11 +36,11 @@ abstract class $AccountEntityCopyWith<$Res> {
       _$AccountEntityCopyWithImpl<$Res, AccountEntity>;
   @useResult
   $Res call(
-      {double? amount,
-      String bankName,
+      {String bankName,
+      String name,
+      double amount,
       CardType cardType,
       int color,
-      String name,
       int? superId,
       bool isAccountExcluded});
 }
@@ -58,23 +58,27 @@ class _$AccountEntityCopyWithImpl<$Res, $Val extends AccountEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amount = freezed,
     Object? bankName = null,
+    Object? name = null,
+    Object? amount = null,
     Object? cardType = null,
     Object? color = null,
-    Object? name = null,
     Object? superId = freezed,
     Object? isAccountExcluded = null,
   }) {
     return _then(_value.copyWith(
-      amount: freezed == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
       bankName: null == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
               as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
       cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
@@ -83,10 +87,6 @@ class _$AccountEntityCopyWithImpl<$Res, $Val extends AccountEntity>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ abstract class _$$AccountEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double? amount,
-      String bankName,
+      {String bankName,
+      String name,
+      double amount,
       CardType cardType,
       int color,
-      String name,
       int? superId,
       bool isAccountExcluded});
 }
@@ -128,23 +128,27 @@ class __$$AccountEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amount = freezed,
     Object? bankName = null,
+    Object? name = null,
+    Object? amount = null,
     Object? cardType = null,
     Object? color = null,
-    Object? name = null,
     Object? superId = freezed,
     Object? isAccountExcluded = null,
   }) {
     return _then(_$AccountEntityImpl(
-      amount: freezed == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
       bankName: null == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
               as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
       cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
@@ -153,10 +157,6 @@ class __$$AccountEntityImplCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
@@ -173,26 +173,27 @@ class __$$AccountEntityImplCopyWithImpl<$Res>
 
 class _$AccountEntityImpl implements _AccountEntity {
   const _$AccountEntityImpl(
-      {this.amount,
-      required this.bankName,
+      {required this.bankName,
+      required this.name,
+      this.amount = 0.0,
       this.cardType = CardType.bank,
       this.color = 0xFFFFFFFF,
-      required this.name,
       this.superId,
       this.isAccountExcluded = false});
 
   @override
-  final double? amount;
-  @override
   final String bankName;
+  @override
+  final String name;
+  @override
+  @JsonKey()
+  final double amount;
   @override
   @JsonKey()
   final CardType cardType;
   @override
   @JsonKey()
   final int color;
-  @override
-  final String name;
   @override
   final int? superId;
   @override
@@ -201,7 +202,7 @@ class _$AccountEntityImpl implements _AccountEntity {
 
   @override
   String toString() {
-    return 'AccountEntity(amount: $amount, bankName: $bankName, cardType: $cardType, color: $color, name: $name, superId: $superId, isAccountExcluded: $isAccountExcluded)';
+    return 'AccountEntity(bankName: $bankName, name: $name, amount: $amount, cardType: $cardType, color: $color, superId: $superId, isAccountExcluded: $isAccountExcluded)';
   }
 
   @override
@@ -209,21 +210,21 @@ class _$AccountEntityImpl implements _AccountEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AccountEntityImpl &&
-            (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.bankName, bankName) ||
                 other.bankName == bankName) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.cardType, cardType) ||
                 other.cardType == cardType) &&
             (identical(other.color, color) || other.color == color) &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.superId, superId) || other.superId == superId) &&
             (identical(other.isAccountExcluded, isAccountExcluded) ||
                 other.isAccountExcluded == isAccountExcluded));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, amount, bankName, cardType,
-      color, name, superId, isAccountExcluded);
+  int get hashCode => Object.hash(runtimeType, bankName, name, amount, cardType,
+      color, superId, isAccountExcluded);
 
   @JsonKey(ignore: true)
   @override
@@ -234,24 +235,24 @@ class _$AccountEntityImpl implements _AccountEntity {
 
 abstract class _AccountEntity implements AccountEntity {
   const factory _AccountEntity(
-      {final double? amount,
-      required final String bankName,
+      {required final String bankName,
+      required final String name,
+      final double amount,
       final CardType cardType,
       final int color,
-      required final String name,
       final int? superId,
       final bool isAccountExcluded}) = _$AccountEntityImpl;
 
   @override
-  double? get amount;
-  @override
   String get bankName;
+  @override
+  String get name;
+  @override
+  double get amount;
   @override
   CardType get cardType;
   @override
   int get color;
-  @override
-  String get name;
   @override
   int? get superId;
   @override

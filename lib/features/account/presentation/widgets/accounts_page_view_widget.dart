@@ -12,6 +12,7 @@ import 'package:paisa/core/widgets/lava/lava_clock.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
+import 'package:paisa/features/account/presentation/cubit/accounts_cubit.dart';
 import 'package:paisa/features/account/presentation/widgets/account_card.dart';
 
 class AccountPageViewWidget extends StatefulWidget {
@@ -37,8 +38,8 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
   void initState() {
     super.initState();
     if (widget.accounts.isNotEmpty) {
-      context.read<AccountBloc>().add(
-            FetchAccountAndExpenseFromIdEvent(widget.accounts.first.superId!),
+      context.read<AccountsCubit>().fetchTransactionsByAccountId(
+            widget.accounts.first.superId!,
           );
     }
   }
@@ -57,70 +58,65 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
               controller: _controller,
               itemCount: widget.accounts.length,
               onPageChanged: (index) {
-                context.read<AccountBloc>().add(
-                    FetchAccountAndExpenseFromIdEvent(
-                        widget.accounts[index].superId!));
+                context.read<AccountsCubit>().fetchTransactionsByAccountId(
+                    widget.accounts[index].superId!);
               },
               itemBuilder: (_, index) {
-                return BlocBuilder<AccountBloc, AccountState>(
+                return BlocBuilder<AccountsCubit, AccountsState>(
                   builder: (context, state) {
-                    if (state is AccountSelectedState) {
-                      final AccountEntity account = widget.accounts[index];
-                      final String expense = state.transactions.totalExpense
-                          .toFormateCurrency(context);
-                      final String income = state.transactions.totalIncome
-                          .toFormateCurrency(context);
-                      final String totalBalance =
-                          (state.transactions.fullTotal + account.initialAmount)
-                              .toFormateCurrency(context);
-                      return AccountCard(
-                        key: ValueKey(account.hashCode),
-                        expense: expense,
-                        income: income,
-                        totalBalance: totalBalance,
-                        cardHolder: account.name,
-                        bankName: account.bankName,
-                        cardType: account.cardType,
-                        onDelete: () {
-                          paisaAlertDialog(
-                            context,
-                            title: Text(
-                              context.loc.dialogDeleteTitle,
-                            ),
-                            child: RichText(
-                              text: TextSpan(
-                                text: context.loc.deleteAccount,
-                                style: context.bodyMedium,
-                                children: [
-                                  TextSpan(
-                                    text: account.name,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                    final AccountEntity account = widget.accounts[index];
+                    final String expense = state.transactions.totalExpense
+                        .toFormateCurrency(context);
+                    final String income = state.transactions.totalIncome
+                        .toFormateCurrency(context);
+                    final String totalBalance =
+                        (state.transactions.fullTotal + account.initialAmount)
+                            .toFormateCurrency(context);
+                    return AccountCard(
+                      key: ValueKey(account.hashCode),
+                      expense: expense,
+                      income: income,
+                      totalBalance: totalBalance,
+                      cardHolder: account.name,
+                      bankName: account.bankName,
+                      cardType: account.cardType,
+                      onDelete: () {
+                        paisaAlertDialog(
+                          context,
+                          title: Text(
+                            context.loc.dialogDeleteTitle,
+                          ),
+                          child: RichText(
+                            text: TextSpan(
+                              text: context.loc.deleteAccount,
+                              style: context.bodyMedium,
+                              children: [
+                                TextSpan(
+                                  text: account.name,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            confirmationButton: TextButton(
-                              onPressed: () {
-                                context
-                                    .read<AccountBloc>()
-                                    .add(DeleteAccountEvent(account.superId!));
-                                Navigator.pop(context);
-                              },
-                              child: Text(context.loc.delete),
-                            ),
-                          );
-                        },
-                        onTap: () {
-                          AccountPageData(
-                            accountId: account.superId,
-                          ).push(context);
-                        },
-                      );
-                    } else {
-                      return const SizedBox.shrink();
-                    }
+                          ),
+                          confirmationButton: TextButton(
+                            onPressed: () {
+                              context
+                                  .read<AccountBloc>()
+                                  .add(DeleteAccountEvent(account.superId!));
+                              Navigator.pop(context);
+                            },
+                            child: Text(context.loc.delete),
+                          ),
+                        );
+                      },
+                      onTap: () {
+                        AccountPageData(
+                          accountId: account.superId,
+                        ).push(context);
+                      },
+                    );
                   },
                 );
               },
@@ -164,29 +160,25 @@ class AccountPageViewDotsIndicator extends StatelessWidget {
     if (accounts.length == 1) {
       return const SizedBox.shrink();
     }
-    return BlocBuilder<AccountBloc, AccountState>(
+    return BlocBuilder<AccountsCubit, AccountsState>(
       builder: (context, state) {
-        if (state is AccountSelectedState) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(accounts.length, (index) {
-                return GestureDetector(
-                  onTap: () {
-                    pageController.jumpToPage(index);
-                  },
-                  child: _indicator(
-                    context,
-                    accounts[index] == state.accountEntity,
-                  ),
-                );
-              }),
-            ),
-          );
-        } else {
-          return const SizedBox.shrink();
-        }
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: List.generate(accounts.length, (index) {
+              return GestureDetector(
+                onTap: () {
+                  pageController.jumpToPage(index);
+                },
+                child: _indicator(
+                  context,
+                  accounts[index] == state.accountEntity,
+                ),
+              );
+            }),
+          ),
+        );
       },
     );
   }

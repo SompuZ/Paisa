@@ -18,7 +18,7 @@ class PaisaAnnotatedRegionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    Color navColor = ElevationOverlay.applySurfaceTint(
+    final Color navColor = ElevationOverlay.applySurfaceTint(
       context.surface,
       context.surfaceTint,
       1,

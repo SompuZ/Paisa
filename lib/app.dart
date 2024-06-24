@@ -13,17 +13,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:paisa/core/app_providers.dart';
+import 'package:paisa/main.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/theme/app_theme.dart';
-import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
-import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
-import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/intro/data/models/country_model.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
+
 import 'package:paisa/features/settings/presentation/cubit/settings_cubit.dart';
 import 'package:paisa/main.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
@@ -53,20 +53,7 @@ class _PaisaAppState extends State<PaisaApp> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<SettingCubit>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<HomeCubit>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<AccountBloc>(),
-        ),
-        Provider(
-          create: (context) => getIt<SummaryController>(),
-        ),
-      ],
+      providers: getIt<AppProviders>().providers,
       child: ValueListenableBuilder<Box>(
         valueListenable: settings.listenable(
           keys: [
@@ -98,9 +85,11 @@ class _PaisaAppState extends State<PaisaApp> {
             themeModeKey,
             defaultValue: 0,
           )];
-          final Locale locale = Locale(
-            value.get(appLanguageKey, defaultValue: 'en'),
+          final String languageCode = value.get(
+            appLanguageKey,
+            defaultValue: 'en',
           );
+          final Locale locale = Locale(languageCode);
           final String fontPreference = value.get(
             appFontChangerKey,
             defaultValue: 'Outfit',
@@ -145,7 +134,6 @@ class _PaisaAppState extends State<PaisaApp> {
 
                   if (isBlack) {
                     darkColorScheme = darkColorScheme.copyWith(
-                      background: Colors.black,
                       surface: Colors.black,
                     );
                   }

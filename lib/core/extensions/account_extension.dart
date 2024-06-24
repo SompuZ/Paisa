@@ -9,14 +9,14 @@ import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 
 extension AccountModelMapping on AccountModel {
-  double get initialAmount => amount ?? 0;
+  double get initialAmount => amount;
   AccountEntity toEntity() => AccountEntity(
         amount: amount,
         bankName: bankName,
         cardType: cardType,
         name: name,
         superId: superId,
-        color: color ?? 0xFFFFFFFF,
+        color: color,
       );
 }
 

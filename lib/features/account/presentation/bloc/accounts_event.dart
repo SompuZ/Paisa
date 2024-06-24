@@ -7,9 +7,6 @@ class AccountsEvent with _$AccountsEvent {
 
   const factory AccountsEvent.deleteAccount(int accountId) = DeleteAccountEvent;
 
-  const factory AccountsEvent.fetchAccountAndExpensesFromID(int accountId) =
-      FetchAccountAndExpenseFromIdEvent;
-
   const factory AccountsEvent.fetchAccountFromID(int accountId) =
       FetchAccountFromIdEvent;
 

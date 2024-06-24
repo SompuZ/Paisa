@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';

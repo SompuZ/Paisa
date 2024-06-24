@@ -10,15 +10,15 @@ part 'country_entity.g.dart';
 class CountryEntity with _$CountryEntity {
   factory CountryEntity({
     required String code,
-    int? decimalDigits,
-    String? decimalSeparator,
+    required int decimalDigits,
+    required String decimalSeparator,
     required String name,
-    String? namePlural,
+    required String namePlural,
     required int number,
     required String pattern,
-    bool? spaceBetweenAmountAndSymbol,
-    String? symbol,
-    bool? symbolOnLeft,
+    required bool spaceBetweenAmountAndSymbol,
+    required String symbol,
+    required bool symbolOnLeft,
     required String thousandsSeparator,
   }) = _CountryEntity;
 

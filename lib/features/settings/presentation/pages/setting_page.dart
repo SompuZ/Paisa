@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:paisa/core/enum/theme_mode.dart';
+import 'package:paisa/features/settings/presentation/widgets/accounts_style_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/choose_calendar_format_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/choose_theme_mode_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/true_black_widget_theme.dart';
@@ -15,7 +16,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/calendar_formats.dart';
-import 'package:paisa/core/widgets/paisa_widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/settings/data/authenticate.dart';
 import 'package:paisa/features/settings/presentation/widgets/app_font_changer.dart';
@@ -55,6 +55,8 @@ class SettingsPage extends StatelessWidget {
               options: [
                 const SettingsColorPickerWidget(),
                 const PaisaDivider(),
+                const JustBlackWidget(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.brightness4,
                   title: context.loc.chooseTheme,
@@ -79,21 +81,14 @@ class SettingsPage extends StatelessWidget {
                     );
                   },
                 ),
-                const PaisaDivider(),
-                const JustBlackWidget(),
-                const PaisaDivider(),
-                const SmallSizeFabWidget(),
               ],
             ),
             SettingsGroup(
-              title: context.loc.others,
+              title: context.loc.customize,
               options: [
-                BiometricAuthWidget(
-                  authenticate: getIt<Authenticate>(),
-                ),
-                const AppLanguageChanger(),
+                const SmallSizeFabWidget(),
                 const PaisaDivider(),
-                const CurrencyChangeWidget(),
+                const AccountsStyleWidget(),
                 const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.calendar,
@@ -121,6 +116,17 @@ class SettingsPage extends StatelessWidget {
                 ),
                 const PaisaDivider(),
                 const AppFontChanger(),
+              ],
+            ),
+            SettingsGroup(
+              title: context.loc.others,
+              options: [
+                BiometricAuthWidget(
+                  authenticate: getIt<Authenticate>(),
+                ),
+                const AppLanguageChanger(),
+                const PaisaDivider(),
+                const CurrencyChangeWidget(),
                 const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.backupRestore,

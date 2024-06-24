@@ -20,9 +20,9 @@ class AccountRepositoryImpl extends AccountRepository {
     required String bankName,
     required String holderName,
     required CardType cardType,
-    double? amount,
-    int? color,
-    bool? isAccountExcluded,
+    double amount = 0,
+    int color = 0xFFFFC107,
+    bool isAccountExcluded = false,
   }) {
     return dataSource.add(AccountModel(
       name: holderName,
@@ -60,9 +60,9 @@ class AccountRepositoryImpl extends AccountRepository {
     required String bankName,
     required String holderName,
     required CardType cardType,
-    double? amount,
-    int? color,
-    bool? isAccountExcluded,
+    double amount = 0,
+    int color = 0xFFFFC107,
+    bool isAccountExcluded = false,
   }) {
     return dataSource.update(
       AccountModel(

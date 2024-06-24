@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-//import 'package:math_expressions/math_expressions.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
@@ -28,41 +27,20 @@ class TransactionAmountWidget extends StatelessWidget {
       double? amount = double.tryParse(controller.text);
       context.read<TransactionBloc>().transactionAmount = amount;
     }
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: PaisaTextFormField(
-        /* suffixIcon: GestureDetector(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                content: PaisaTextField(
-                  keyboardType: const TextInputType.numberWithOptions(),
-                  hintText: 'Enter expression',
-                  controller: TextEditingController(),
-                  onChanged: (value) {
-                    final Expression expression =
-                        parser.parse(value.replaceAll('x', '*'));
-                    final double amount =
-                        expression.evaluate(EvaluationType.REAL, contextModel);
-                    controller.text = amount.toString();
-                  },
-                ),
-              ),
-            );
-          },
-          child: const Icon(Icons.calculate),
-        ), */
         controller: controller,
         hintText: context.loc.amount,
         maxLength: 13,
         maxLines: 1,
         counterText: '',
-        keyboardType:
-            const TextInputType.numberWithOptions(decimal: true, signed: true),
+        keyboardType: const TextInputType.numberWithOptions(
+          decimal: true,
+          signed: true,
+        ),
         inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+          FilteringTextInputFormatter.allow(RegExp(r"[0-9 '.,-]")),
           TextInputFormatter.withFunction((oldValue, newValue) {
             try {
               final text = newValue.text;

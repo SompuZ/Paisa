@@ -127,7 +127,6 @@ class CountryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PaisaCard(
-      color: context.surface,
       shape: selected
           ? RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24),

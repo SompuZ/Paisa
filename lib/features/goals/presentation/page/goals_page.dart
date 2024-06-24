@@ -39,6 +39,7 @@ class GoalsPage extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             itemCount: goals.length,
             itemBuilder: (context, index) {
+              return const SizedBox.shrink();
               /* final GoalEntity goalEntity = goales[index];
               final List<TransactionEntity> expenses = context
                   .read<HomeCubit>()

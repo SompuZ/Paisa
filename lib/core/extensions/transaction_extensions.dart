@@ -78,7 +78,7 @@ extension ExpenseModelsHelper on Iterable<TransactionModel> {
   }
 
   List<TransactionEntity> toExcludeAccounts() {
-    final accounts = settings.get(
+    final List<int> accounts = settings.get(
       excludedAccountIdKey,
       defaultValue: <int>[],
     );

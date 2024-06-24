@@ -1084,5 +1084,10 @@
     "@addGoalTooltip": {
         "description": "Tooltip shown on the goals add button",
         "type": "text"
+    },
+    "customize": "Customize",
+    "@customize": {
+        "description": "Subtitle text shown on the settings page section",
+        "type": "text"
     }
 }

@@ -33,9 +33,9 @@ class AddAccountParams with _$AddAccountParams {
   const factory AddAccountParams({
     required String bankName,
     required String holderName,
-    double? amount,
+    @Default(0.0) double amount,
     @Default(CardType.cash) CardType cardType,
-    int? color,
-    bool? isAccountExcluded,
+    @Default(0xFFFFFFFF) int color,
+    @Default(false) bool isAccountExcluded,
   }) = _AddAccountParams;
 }

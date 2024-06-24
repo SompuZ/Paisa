@@ -25,12 +25,14 @@ class TransactionByCategoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<TransactionEntity> expenses =
         context.read<HomeCubit>().fetchExpensesFromCategoryId(categoryId);
+    final CategoryEntity? categoryEntity =
+        context.read<HomeCubit>().fetchCategoryFromId(categoryId);
 
     return PaisaAnnotatedRegionWidget(
       color: Colors.transparent,
       child: Scaffold(
         extendBody: true,
-        appBar: context.materialYouAppBar(context.loc.transactionsByCategory),
+        appBar: context.materialYouAppBar(categoryEntity?.name ?? ''),
         bottomNavigationBar: SafeArea(
           child: PaisaFilledCard(
             child: ListTile(

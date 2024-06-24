@@ -193,6 +193,14 @@ RouteBase get $landingPageData => GoRouteData.$route(
           path: 'transactions/:categoryId',
           factory: $TransactionsByCategoryPageDataExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'export',
+          factory: $ExportAndImportPageDataExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'transactions-by-account/:accountId',
+          factory: $TransactionsByAccountPageDataExtension._fromState,
+        ),
       ],
     );
 
@@ -464,6 +472,27 @@ extension $TransactionsByCategoryPageDataExtension
 
   String get location => GoRouteData.$location(
         '/landing/transactions/${Uri.encodeComponent(categoryId.toString())}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TransactionsByAccountPageDataExtension
+    on TransactionsByAccountPageData {
+  static TransactionsByAccountPageData _fromState(GoRouterState state) =>
+      TransactionsByAccountPageData(
+        accountId: int.parse(state.pathParameters['accountId']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/landing/transactions-by-account/${Uri.encodeComponent(accountId.toString())}',
       );
 
   void go(BuildContext context) => context.go(location);

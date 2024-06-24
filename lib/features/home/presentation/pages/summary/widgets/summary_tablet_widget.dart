@@ -1,7 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:paisa/core/common.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
@@ -9,7 +8,6 @@ import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/transaction_item_widget.dart';
 
 // Project imports:
-import 'package:paisa/features/home/presentation/pages/summary/widgets/transaction_list_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/transaction_total_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/welcome_name_widget.dart';
 import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';

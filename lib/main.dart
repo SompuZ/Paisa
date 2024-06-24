@@ -26,7 +26,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configInjector(getIt);
   getIt<RecurringRepository>().checkForRecurring();
+
   runApp(const PaisaApp());
+
   if (TargetPlatform.android == defaultTargetPlatform ||
       TargetPlatform.iOS == defaultTargetPlatform) {
     initAppShortcuts();
@@ -62,10 +64,10 @@ void _addDummyData() async {
     );
   }
   final random = Random();
-  final startDate = DateTime(2019);
+  final startDate = DateTime(2024);
   final endDate = DateTime.now();
 
-  for (int i = 0; i < 1000; i++) {
+  for (int i = 0; i < 2000; i++) {
     int accountId = Random().nextInt(10);
     int categoryId = Random().nextInt(10);
     final difference = endDate.difference(startDate).inDays;

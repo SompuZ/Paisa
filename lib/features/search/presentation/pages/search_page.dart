@@ -60,7 +60,6 @@ class _SearchPageState extends State<SearchPage> {
                         await showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
-                      isDismissible: true,
                       constraints: BoxConstraints(
                         maxWidth: MediaQuery.of(context).size.width >= 700
                             ? 700

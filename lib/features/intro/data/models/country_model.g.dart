@@ -18,15 +18,15 @@ class CountryModelAdapter extends TypeAdapter<_$CountryModelImpl> {
     };
     return _$CountryModelImpl(
       code: fields[0] as String,
-      decimalDigits: fields[1] as int?,
-      decimalSeparator: fields[2] as String?,
+      decimalDigits: fields[1] as int,
+      decimalSeparator: fields[2] as String,
       name: fields[3] as String,
-      namePlural: fields[4] as String?,
+      namePlural: fields[4] as String,
       number: fields[5] as int,
       pattern: fields[6] as String,
-      spaceBetweenAmountAndSymbol: fields[7] as bool?,
-      symbol: fields[9] as String?,
-      symbolOnLeft: fields[10] as bool?,
+      spaceBetweenAmountAndSymbol: fields[7] as bool,
+      symbol: fields[9] as String,
+      symbolOnLeft: fields[10] as bool,
       thousandsSeparator: fields[11] as String,
     );
   }
@@ -77,16 +77,16 @@ class CountryModelAdapter extends TypeAdapter<_$CountryModelImpl> {
 _$CountryModelImpl _$$CountryModelImplFromJson(Map<String, dynamic> json) =>
     _$CountryModelImpl(
       code: json['code'] as String,
-      decimalDigits: (json['decimal_digits'] as num?)?.toInt(),
-      decimalSeparator: json['decimal_separator'] as String?,
+      decimalDigits: (json['decimal_digits'] as num?)?.toInt() ?? 2,
+      decimalSeparator: json['decimal_separator'] as String? ?? ',',
       name: json['name'] as String,
-      namePlural: json['name_plural'] as String?,
+      namePlural: json['name_plural'] as String? ?? '',
       number: (json['number'] as num).toInt(),
       pattern: json['pattern'] as String,
       spaceBetweenAmountAndSymbol:
-          json['space_between_amount_and_symbol'] as bool?,
-      symbol: json['symbol'] as String?,
-      symbolOnLeft: json['symbol_on_left'] as bool?,
+          json['space_between_amount_and_symbol'] as bool? ?? false,
+      symbol: json['symbol'] as String? ?? '\$',
+      symbolOnLeft: json['symbol_on_left'] as bool? ?? false,
       thousandsSeparator: json['thousands_separator'] as String,
     );
 

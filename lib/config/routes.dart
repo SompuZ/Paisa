@@ -10,6 +10,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/presentation/pages/add/add_account_page.dart';
+import 'package:paisa/features/account/presentation/pages/transactions_by_account_page.dart';
 import 'package:paisa/features/category/presentation/pages/add/add_category_page.dart';
 import 'package:paisa/features/category/presentation/pages/category_icon_picker_page.dart';
 import 'package:paisa/features/debit/presentation/pages/add/add_debit_page.dart';
@@ -213,6 +214,11 @@ class BiometricPageData extends GoRouteData {
     TypedGoRoute<TransactionsByCategoryPageData>(
       path: 'transactions/:categoryId',
     ),
+    TypedGoRoute<ExportAndImportPageData>(
+      path: 'export',
+    ),
+    TypedGoRoute<TransactionsByAccountPageData>(
+        path: 'transactions-by-account/:accountId')
   ],
 )
 class LandingPageData extends GoRouteData {
@@ -220,7 +226,20 @@ class LandingPageData extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const LandingPage();
+    return const HomePage();
+  }
+}
+
+class TransactionsByAccountPageData extends GoRouteData {
+  const TransactionsByAccountPageData({required this.accountId});
+
+  final int accountId;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return TransactionsByAccountPage(
+      accountId: accountId,
+    );
   }
 }
 
@@ -361,16 +380,6 @@ class TransactionsByCategoryPageData extends GoRouteData {
   }
 }
 
-class TransactionsByAccountPageData extends GoRouteData {
-  const TransactionsByAccountPageData(this.accountId);
-
-  final int accountId;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return AccountPage(accountId: accountId);
-  }
-}
 /* 
 final GoRouter goRouter = GoRouter(
   initialLocation: introPagePath,

@@ -1,0 +1,1088 @@
+{
+    "appTitle": "Paisa",
+    "@appTitle": {
+        "description": "Uygulama adı",
+        "type": "text"
+    },
+    "home": "Ana Sayfa",
+    "@home": {
+        "description": "Ana sayfa metni alt gezinme veya çekmece widget'ında gösterilir",
+        "type": "text"
+    },
+    "transactions": "İşlemler",
+    "@transactions": {
+        "description": "Ana sayfada gösterilen bölüm başlığı",
+        "type": "text"
+    },
+    "welcomeMessage": "Tekrar hoş geldiniz!",
+    "@welcomeMessage": {
+        "description": "Ana ekranda kullanıcı adı altında gösterilen metin",
+        "type": "text"
+    },
+    "categories": "Kategoriler",
+    "@categories": {
+        "description": "Alt gezinme veya çekmece widget'ında gösterilen kategoriler metni",
+        "type": "text"
+    },
+    "accounts": "Hesaplar",
+    "@accounts": {
+        "description": "Alt gezinme veya çekmece widget'ında gösterilen hesap metni",
+        "type": "text"
+    },
+    "budget": "Bütçe",
+    "@budget": {
+        "description": "Alt gezinme veya çekmece widget'ında gösterilen hesap metni",
+        "type": "text"
+    },
+    "overview": "Genel Bakış",
+    "@overview": {
+        "description": "Alt gezinme veya çekmece widget'ında gösterilen hesap metni",
+        "type": "text"
+    },
+    "defaultAccount": "Varsayılan hesap",
+    "@defaultAccount": {
+        "description": "Hesap ekle ekranındaki anahtarda gösterilen metin",
+        "type": "text"
+    },
+    "recurring": "Yinelenen",
+    "@recurring": {
+        "description": "Alt gezinme veya çekmece widget'ında ve yinelenen sayfa araç çubuğu başlığında gösterilen yinelenen metin",
+        "type": "text"
+    },
+    "debts": "Borçlar",
+    "@debts": {
+        "description": "Alt gezinti veya çekmece widget'ında gösterilen borçlar metni",
+        "type": "text"
+    },
+    "addTransactionTooltip": "İşlem ekle",
+    "@addTransactionTooltip": {
+        "description": "Ana sayfa fab düğmesinde gösterilen araç ipucu",
+        "type": "text"
+    },
+    "addAccountTooltip": "Hesap ekle",
+    "@addAccountTooltip": {
+        "description": "Hesap fab düğmesinde gösterilen araç ipucu",
+        "type": "text"
+    },
+    "addCategoryTooltip": "Kategori ekle",
+    "@addCategoryTooltip": {
+        "description": "Fab kategorisi düğmesinde gösterilen araç ipucu",
+        "type": "text"
+    },
+    "addDebtTooltip": "Borç ekle",
+    "@addDebtTooltip": {
+        "description": "Kategori borcu düğmesinde gösterilen araç ipucu",
+        "type": "text"
+    },
+    "addRecurringTooltip": "Yinelenen ekle",
+    "@addRecurringTooltip": {
+        "description": "Kategori yinelenen düğmesinde gösterilen araç ipucu",
+        "type": "text"
+    },
+    "selectDateRangeTooltip": "Tarih aralığı",
+    "@selectDate": {
+        "description": "Genel bakış fab düğmesinde gösterilen araç ipucu",
+        "type": "text"
+    },
+    "transactionSubTittleText": "{bankName} • {dateString}",
+    "@transactionSubTittleText": {
+        "description": "Genel bakış fab düğmesinde gösterilen araç ipucu",
+        "type": "text",
+      "placeholders": {
+        "bankName": {
+            "type": "Dizi"
+        },
+        "dateString": {
+            "type": "Dizi"
+        }
+      }
+    },
+    "addCategory": "Kategori Ekle",
+    "@addCategory": {
+        "description": "Kategori sayfasındaki araç çubuğunda gösterilen metin",
+        "type": "text"
+    },
+    "addCategoryEmptyTitle": "Kategori yok",
+    "@addCategoryEmptyTitle": {
+        "description": "Kategoriler mevcut olmadığında gider sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "addCategoryEmptySubTitle": "Seçmek için kategoriler ekleyin",
+    "@addCategoryEmptySubTitle": {
+        "description": "Kategoriler mevcut olmadığında gider sayfasında gösterilen altyazı metni",
+        "type": "text"
+    },
+    "addAccountEmptyTitle": "Hesap yok",
+    "@addAccountEmptyTitle": {
+        "description": "Kullanılabilir hesap olmadığında gider sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "addAccountEmptySubTitle": "Seçmek için hesap ekleyin",
+    "@addAccountEmptySubTitle": {
+        "description": "Hesaplar mevcut olmadığında gider sayfasında gösterilen altyazı metni",
+        "type": "text"
+    },
+    "addTransaction": "İşlem ekle",
+    "@addTransaction": {
+        "description": "İşlemler sayfasında gösterilen işlem metnini araç çubuğu başlığı olarak ekleyin",
+        "type": "text"
+    },
+    "updateTransaction": "İşlemi güncelle",
+    "@updateTransaction": {
+        "description": "İşlemler sayfasında gösterilen işlem metnini araç çubuğu başlığı olarak güncelle",
+        "type": "text"
+    },
+    "addedTransaction": "İşlem eklendi",
+    "@addedTransaction": {
+        "description": "İşlem eklendiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "updatedTransaction": "İşlem güncellendi",
+    "@updatedTransaction": {
+        "description": "İşlem güncellendiğinde başarılı mesajı",
+        "type": "text"
+    },
+    "deletedTransaction": "İşlem silindi",
+    "@deletedTransaction": {
+        "description": "İşlem silindiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "expenseName": "Masraf adı",
+    "@expenseName": {
+        "description": "Giriş ipucu adında gösterilen metin",
+        "type": "text"
+    },
+      "description": "Açıklama",
+    "@description": {
+        "description": "İşlem sayfasında gösterilen metin metin alanı açıklaması ",
+        "type": "text"
+    },
+    "selectAccount": "Hesap seç",
+    "@selectAccount": {
+        "description": "Hesaplar için işlemde gösterilen bölüm başlık metni",
+        "type": "text"
+    },
+    "selectCategory": "Kategori seçin",
+    "@selectCategory": {
+        "description": "Kategoriler için işlemde gösterilen bölüm başlık metni ",
+        "type": "text"
+    },
+    "settings": "Ayarlar",
+    "@settings": {
+        "description": "Çekmece düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "localApp": "Parmak izi ile kilidi AÇ",
+    "@localApp": {
+        "description": "Ayarlar sayfasında biyometrik düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "expense": "Masraf",
+    "@expense": {
+        "description": "Birden fazla yerde gösterilen metin",
+        "type": "text"
+    },
+    "transfer": "Nakil",
+    "@transfer": {
+        "description": "Birden fazla yerde gösterilen metin",
+        "type": "text"
+    },
+    "daily": "Günlük",
+    "@daily": {
+        "description": "Gider filtresinde gösterilen metin",
+        "type": "text"
+    },
+    "weekly": "Haftalık",
+    "@weekly": {
+        "description": "Gider filtresinde gösterilen metin",
+        "type": "text"
+    },
+    "monthly": "Aylık",
+    "@monthly": {
+        "description": "Gider filtresinde gösterilen metin",
+        "type": "text"
+    },
+    "yearly": "Yıllık",
+    "@yearly": {
+        "description": "Gider filtresinde gösterilen metin",
+        "type": "text"
+    },
+    "all": "Tümü",
+    "@all": {
+        "description": "Gider filtresinde gösterilen metin",
+        "type": "text"
+    },
+    "updateAccount": "Hesabı güncelle",
+    "@updateAccount": {
+        "description": "İşlemler sayfasında gösterilen hesap metnini araç çubuğu başlığı olarak güncelleyin",
+        "type": "text"
+    },
+    "addAccount": "Hesap Ekle",
+    "@addAccount": {
+        "description": "İşlemler sayfasında gösterilen hesap metnini araç çubuğu başlığı olarak ekleyin",
+        "type": "text"
+    },
+    "transactionHistory": "İşlem geçmişi",
+    "@transactionHistory": {
+        "description": "Hesaplar sayfasında bölüm başlığı başlığı olarak gösterilen başlık metni",
+        "type": "text"
+    },
+    "cash": "Kasa",
+    "@cash": {
+        "description": "Hesap sayfası çip düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "bank": "Banka",
+    "@bank": {
+        "description": "Hesap sayfası çip düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "wallet": "Cüzdan",
+    "@wallet": {
+        "description": "Hesap sayfası çip düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "cardHolder": "Kart sahibinin adı",
+    "@cardHolder": {
+        "description": "Hesap sayfasında metin alanı ipucu olarak gösterilen metin",
+        "type": "text"
+    },
+    "accountName": "Hesap adı",
+    "@accountName": {
+        "description": "Hesap sayfasında metin alanı ipucu olarak gösterilen metin",
+        "type": "text"
+    },
+    "lastFourDigit": "Son dört basamaklı sayı",
+    "@lastFourDigit": {
+        "description": "Hesap sayfasında metin alanı ipucu olarak gösterilen metin",
+        "type": "text"
+    },
+    "addedAccount": "Hesap eklendi",
+    "@addedAccount": {
+        "description": "Hesap eklendiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "updatedAccount": "Hesap güncellendi",
+    "@updatedAccount": {
+        "description": "Hesap güncellendiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "deletedAccount": "Hesap silindi",
+    "@deletedAccount": {
+        "description": "Hesap silindiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "deletedCategory": "Kategori silindi",
+    "@deletedCategory": {
+        "description": "Kategori silindiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "successAddCategory": "Kategori eklendi",
+    "@successAddCategory": {
+        "description": "Kategori silindiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "validName": "Geçerli bir ad girin",
+    "@validName": {
+        "description": "Girilen ad geçerli olmadığında gösterilen hata mesajı",
+        "type": "text"
+    },
+    "profile": "Profil",
+    "@profile": {
+        "description": "Alt sayfa iletişim kutusunda gösterilen metin",
+        "type": "text"
+    },
+    "chooseTheme": "Tema seç",
+    "@chooseTheme": {
+        "description": "Tema seçici için ayarlar sayfası temasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "selectCurrency": "Para birimi seçin",
+    "@selectCurrency": {
+        "description": "Para birimini seçerken gösterilen araç çubuğu başlık metni",
+        "type": "text"
+    },
+    "errorAuth": "Kimlik doğrulama hatası",
+    "@errorAuth": {
+        "description": "Biyometrik kimlik doğrulama başarısız olduğunda gösterilen hata mesajı",
+        "type": "text"
+    },
+    "emptyAccountMessageTitle": "Kullanılabilir hesap yok",
+    "@emptyAccountMessageTitle": {
+        "description": "Hesaplar sayfasında gösterilen mesaj başlığı metni",
+        "type": "text"
+    },
+    "emptyAccountMessageSubTitle": "Burada görüntülemek için bir hesap ekleyin",
+    "@emptyAccountMessageSubTitle": {
+        "description": "Hesaplar sayfasında gösterilen mesaj alt başlık metni",
+        "type": "text"
+    },
+    "emptyCategoriesMessageTitle": "Hiçbir kategori mevcut değil",
+    "@emptyCategoriesMessageTitle": {
+        "description": "Kategoriler mevcut olmadığında kategoriler sayfasında gösterilen mesaj başlığı metni",
+        "type": "text"
+    },
+    "emptyCategoriesMessageSubTitle": "Burada görüntülemek için bir kategori ekleyin",
+    "@emptyCategoriesMessageSubTitle": {
+        "description": "Kategoriler mevcut olmadığında kategoriler sayfasında gösterilen mesaj altyazı metni",
+        "type": "text"
+    },
+    "emptyOverviewMessageTitle": "Genel bakış verisi yok",
+    "@emptyOverviewMessageTitle": {
+        "description": "Genel bakış veri mesajı yok",
+        "type": "text"
+    },
+    "emptyOverviewMessageSubtitle": "Harcamalara genel bakışınızı görmek için harcamalarınızı ekleyin",
+    "@emptyOverviewMessageSubtitle": {
+        "description": "Bütçeye genel bakış açıklaması yok ",
+        "type": "text"
+    },
+    "amount": "Tutar",
+    "@amount": {
+        "description": "Giriş ipucu adında gösterilen metin",
+        "type": "text"
+    },
+    "initialAmount": "İlk tutar",
+    "@initialAmount": {
+        "description": "Giriş ipucu adında gösterilen metin"
+    },
+    "validAmount": "Geçerli bir tutar girin",
+    "@validAmount": {
+        "description": "Giriş ipucu adında gösterilen metin",
+        "type": "text"
+    },
+    "dueDate": "Bitiş tarihi",
+    "@dueDate": {
+        "description": "Bitiş tarihi seçerken borç/ alacak sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "startDate": "Başlangıç tarihi",
+    "@startDate": {
+        "description": "Başlangıç tarihi seçerken borç/ alacak sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "socialLinks": "Sosyal bağlantılar",
+    "@socialLinks": {
+        "description": "Ayarlar sayfasında gösterilen bölüm başlığı",
+        "type": "text"
+    },
+    "telegram": "Telegram",
+    "@telegram": {
+        "description": "Telgraf düğmesi için ayarlar sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "telegramGroup": "Hataları ve özellik isteklerini takip etmek ve yayınlamak için bir grup",
+    "@telegramGroup": {
+        "description": "Telgraf düğmesi için ayarlar sayfasında gösterilen altyazı metni",
+        "type": "text"
+    },
+    "privacyPolicy": "Gizlilik ve Politika",
+    "@privacyPolicy": {
+        "description": "Gizlilik ve politika düğmesi için ayarlar sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "github": "GitHub",
+    "@github": {
+        "description": "Github düğmesi için ayarlar sayfasında gösterilen başlık metni ",
+        "type": "text"
+    },
+    "githubText": "Projeyi GitHub'da çatallayın",
+    "@githubText": {
+        "description": "Github düğmesinde gösterilen altyazı metni",
+        "type": "text"
+    },
+    "version": "Versiyon",
+    "@version": {
+        "description": "Düğme için ayarlar sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "versionNumber": "v{version}",
+    "@versionNumber": {
+        "description": "Düğme için ayarlar sayfasında gösterilen altyazı metni",
+      "placeholders": {
+        "version": {
+            "type": "Dizi"
+        }
+      }
+    },
+    "deleteAccount": "Hesabın silinmesi, bu hesaba bağlı tüm masrafları siler ",
+    "@deleteAccount": {
+        "description": "Hesap mesajını sil",
+        "type": "text"
+    },
+    "deleteCategory": "Kategorinin silinmesi, bu kategoriye bağlı tüm giderleri siler",
+    "@deleteCategory": {
+        "description": "Kategori mesajını sil",
+        "type": "text"
+    },
+    "deleteExpense": "Gider hesaptan kalıcı olarak kaldırılacak",
+    "@deleteExpense": {
+        "description": "Gider mesajını sil",
+        "type": "text"
+    },
+    "dialogDeleteTitle": "Kalıcı olarak silinsin mi?",
+    "@dialogDeleteTitle": {
+        "description": "Kalıcı olarak sil ",
+        "type": "text"
+    },
+    "updatedCategory": "Kategori güncellendi",
+    "@updatedCategory": {
+        "description": "Kategori güncellendiğinde başarılı mesaj",
+        "type": "text"
+    },
+    "update": "Güncelle",
+    "@update": {
+        "description": "Düğmede birden fazla yerde gösterilen metin",
+        "type": "text"
+    },
+    "add": "Ekle",
+    "@add": {
+        "description": "Düğmede birden fazla yerde gösterilen metin",
+        "type": "text"
+    },
+    "done": "Bitti",
+    "@done": {
+        "description": "Düğmede birden fazla yerde gösterilen metin",
+        "type": "text"
+    },
+    "cancel": "İptal",
+    "@cancel": {
+        "description": "Düğmede birden fazla yerde gösterilen metin",
+        "type": "text"
+    },
+    "custom": "Özel",
+    "@custom": {
+        "description": "Tema seçeneğinden birinde gösterilen metin",
+        "type": "text"
+    },
+    "accentColor": "Ana renk",
+    "@accentColor": {
+        "description": "Ayarlar sayfası tema düğmesinde gösterilen başlık metni",
+        "type": "text"
+    },
+    "dynamicColor": "Dinamik",
+    "@dynamicColor": {
+        "description": "Tema seçeneği değiştirme düğmesinde gösterilen metin ",
+        "type": "text"
+    },
+    "pickColor": "Renk seç",
+    "@pickColor": {
+        "description": "Renk seçicide gösterilen başlık metni",
+        "type": "text"
+    },
+    "pickColorDesc": "Rengi kategorinize ayarlayın",
+    "@pickColorDesc": {
+        "description": "Kategori renk seçici düğmesinde gösterilen altyazı metni",
+        "type": "text"
+    },
+    "pickColorAccountDesc": "Hesabınıza renk belirleyin",
+    "@pickColorAccountDesc": {
+        "description": "Hesap rengi seçici düğmesinde gösterilen altyazı metni",
+        "type": "text"
+    },
+    "colors": "Renkler",
+    "@colors": {
+        "description": "Tema için ayarlar sayfasındaki bölüm başlığı",
+        "type": "text"
+    },
+    "others": "Diğerleri",
+    "@others": {
+        "description": "Tema için ayarlar sayfasındaki bölüm başlığı",
+        "type": "text"
+    },
+    "madeWithLoveInIndia": "Ile ♥ Hindistan'da üretildi",
+    "@madeWithLoveInIndia": {
+        "description": "Ayar ekranının alt kısmında gösterilen mesaj",
+        "type": "text"
+    },
+    "updateCategory": "Kategoriyi Güncelle",
+    "@updateCategory": {
+        "description": "Kategori ekleme ekranı araç çubuğunda gösterilen metin",
+        "type": "text"
+    },
+    "accountInformationTitle": "Bilgi",
+    "@accountInformationTitle": {
+        "description": "Bilgi iletişim kutusunda gösterilen başlık metni",
+        "type": "text"
+    },
+    "accountInformationSubTitle": "Girdiğiniz hesap bilgileri, biz de dahil olmak üzere kimseyle paylaşılmaz. Yalnızca hesap ayrıntılarının görsel temsili için kullanılır, yanlış bilgi de girebilirsiniz",
+    "@accountInformationSubTitle": {
+        "description": "Bilgi iletişim kutusunda gösterilen altyazı metni",
+        "type": "text"
+    },
+    "next": "Sonraki",
+    "@next": {
+        "description": "Giriş sayfası düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "image": "Resim",
+    "@image": {
+        "description": "Giriş sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "welcome": "Merhaba, Hoşgeldiniz",
+    "@welcome": {
+        "description": "Ad girişi için giriş sayfası mesajı",
+        "type": "text"
+    },
+    "welcomeDesc": "Size nasıl hitap edelim?",
+    "@welcomeDesc": {
+        "description": "Karşılama açıklaması ",
+        "type": "text"
+    },
+    "nameHint": "Adı",
+    "@nameHint": {
+        "description": "Metin girişi ipucu adı",
+        "type": "text"
+    },
+    "enterNameHint": "Ad girin",
+    "@enterNameHint": {
+        "description": "Metin girişi ipucu adı",
+        "type": "text"
+    },
+    "imageDesc": "Şimdi bir resminizi oluşturalım",
+    "@imageDesc": {
+        "description": "Görüntü açıklaması ",
+        "type": "text"
+    },
+    "setBudget": "Kategori için bütçe belirleyin",
+    "@setBudget": {
+        "description": "Bütçe ayarı için kategori ekranında gösterilen metin",
+        "type": "text"
+    },
+    "income": "Gelir",
+    "@income": {
+        "description": "Birden fazla yerde gösterilen metin",
+        "type": "text"
+    },
+    "thisMonth": "Bu ay",
+    "@thisMonth": {
+        "description": "Ana ekranın üst kısmında gösterilen metin",
+        "type": "text"
+    },
+    "totalBalance": "Toplam bakiye",
+    "@totalBalance": {
+        "description": "Ana ekranın üst kısmında gösterilen metin",
+        "type": "text"
+    },
+    "ok": "Tamam",
+    "@ok": {
+        "description": "Düğmede gösterilen metin",
+        "type": "text"
+    },
+    "searchMessage": "Bir şeyler aramaya başlayın!",
+    "@searchMessage": {
+        "description": "Arama ekranında gösterilen mesaj",
+        "type": "text"
+    },
+    "emptySearchMessage": "Görünüşe göre hiçbir şey bulunamadı!",
+    "@emptySearchMessage": {
+        "description": "Arama ekranında gösterilen mesaj",
+        "type": "text"
+    },
+    "emptyExpensesMessageTitle": "Henüz masrafınız yok mu?",
+    "@emptyExpensesMessageTitle": {
+        "description": "Masraf olmadığında sayfada gösterilen başlık mesajı",
+        "type": "text"
+    },
+    "emptyExpensesMessageSubTitle": "Masraf yoksa, burada görüntülendiğini görmek için bir masraf ekleyerek başlayın",
+    "@emptyExpensesMessageSunTitle": {
+        "description": "Masraf olmadığında sayfada gösterilen altyazı mesajı",
+        "type": "text"
+    },
+    "selectIconTitle": "Simge seç",
+    "@selectIconTitle": {
+        "description": "Kategori sayfasındaki düğmede gösterilen başlık metni",
+        "type": "text"
+    },
+    "selectIconSubTitle": "Simgeyi seçmek için dokunun",
+    "@selectIconSubTitle": {
+        "description": "Kategori sayfasındaki düğmede gösterilen altyazı metni",
+        "type": "text"
+    },
+    "incomeName": "Gelir adı",
+    "@incomeName": {
+        "description": "Giriş ipucunda gösterilen metin",
+        "type": "text"
+    },
+    "currencySign": "Para birimi işareti",
+    "@currencySign": {
+        "description": "Ayarlar ekranındaki düğmede gösterilen metin",
+        "type": "text"
+    },
+    "calendarFormat": "Takvim biçimi",
+    "@calendarFormat": {
+        "description": "Ayarlar ekranındaki düğmede gösterilen metin",
+        "type": "text"
+    },
+    "expenseByCategory": "Kategoriye göre gider",
+    "@expenseByCategory": {
+        "description": "Araç çubuğu başlığında gösterilen metin",
+        "type": "text"
+    },
+    "transactionsByCategory": "Kategoriye göre işlemler",
+    "@transactionsByCategory": {
+        "description": "Araç çubuğu başlığında gösterilen metin",
+        "type": "text"
+    },
+    "backupAndRestoreTitle": "Yedekleme ve geri yükleme",
+    "@backupAndRestoreTitle": {
+        "description": "Araç çubuğu başlığında gösterilen metin",
+        "type": "text"
+    },
+    "backupAndRestoreSubTitle": "Giderlerinizi, hesaplarınızı ve kategorilerinizi yedekleyin ve geri yükleyin",
+    "@backupAndRestoreSubTitle": {
+        "description": "Ayar düğmesinde gösterilen altyazı metni",
+        "type": "text"
+    },
+    "exportData": "Dışa Aktar",
+    "@exportData": {
+        "description": "İçe aktarma ve dışa aktarma düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "importData": "İçe Aktar",
+    "@importData": {
+        "description": "İçe aktarma ve dışa aktarma düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "creatingBackup": "Yedek oluşturuluyor",
+    "@creatingBackup": {
+        "description": "Yedekleme başlatıldığında gösterilen mesaj",
+        "type": "text"
+    },
+    "creatingBackupSuccess": "Yedekleme başarılı",
+    "@creatingBackupSuccess": {
+        "description": "Yedekleme dosyası içe aktarılırken gösterilen mesaj",
+        "type": "text"
+    },
+    "restoringBackup": "Yedek geri yükleniyor",
+    "@restoringBackup": {
+        "description": "Yedekleme dosyası içe aktarılırken gösterilen mesaj",
+        "type": "text"
+    },
+    "restoringBackupSuccess": "Geri yükleme başarılı",
+    "@restoringBackupSuccess": {
+        "description": "Yedekleme dosyası içe aktarılırken gösterilen mesaj",
+        "type": "text"
+    },
+    "saveAsCSV": "CSV olarak kaydet",
+    "@saveAsCSV": {
+        "description": "CSV olarak kaydet "
+    },
+    "saveAsCSVDesc": "Verileri CSV dosya biçimine aktar",
+    "@saveAsCSVDesc": {
+        "description": "CSV olarak kaydet "
+    },
+    "appRate": "Uygulamayı değerlendirin",
+    "@appRate": {
+        "description": "Oran "
+    },
+    "appRateDesc": "Bu uygulamayı beğendiniz mi? Google Play Store'da nasıl daha iyi hale getirebileceğimizi bize bildirin",
+    "@appRateDesc": {
+        "description": "Oran "
+    },
+    "raiseABugOrRequest": "Hata veya istekte bulunun",
+    "@raiseABugOrRequest": {
+        "description": "Hata veya istekte bulunun "
+    },
+    "raiseABugOrRequestDesc": "Bir hata mı buldunuz veya uygulanacak bir özelliğe mi ihtiyacınız var? Sor bakalım!",
+    "@raiseABugOrRequestDesc": {
+        "description": "Bir hata bulundu veya soru sormak için bir özelliğe ihtiyaç var "
+    },
+    "transferName": "Havale adı",
+    "@transferName": {
+        "description": "Havale adı "
+    },
+    "debt": "Borç",
+    "@debt": {
+        "description": "Borçlar "
+    },
+    "credit": "Kredi",
+    "@credit": {
+        "description": "Kredi "
+    },
+    "enterCategory": "Kategori gir",
+    "@enterCategory": {
+        "description": "Kategori gir "
+    },
+    "addDebt": "Borç ekle",
+    "@addDebt": {
+        "description": "Borç ekle "
+    },
+    "addCredit": "Kredi ekleyin",
+    "@addCredit": {
+        "description": "Kredi ekleyin "
+    },
+    "enterBudget": "Bütçeyi girin",
+    "@enterBudget": {
+        "description": "Bütçeyi girin "
+    },
+    "enterDescription": "Açıklama girin",
+    "@enterDescription": {
+        "description": "Açıklama girin "
+    },
+    "validDescription": "Geçerli bir açıklama girin",
+    "@validDescription": {
+        "description": "Geçerli bir açıklama girin "
+    },
+    "payDebt": "Borcunu öde",
+    "@payDebt": {
+        "description": "Borcunu öde "
+    },
+    "payCredit": "Kredi ödeyin",
+    "@payCredit": {
+        "description": "Kredi ödeyin "
+    },
+    "enterAmount": "Tutar girin",
+    "@enterAmount": {
+        "description": "Tutar girin "
+    },
+    "emptyDebts": "Şu anda herhangi bir borç bulunmamaktadır",
+    "@emptyDebts": {
+        "description": "Şu anda herhangi bir borç bulunmamaktadır "
+    },
+    "emptyDebtsDesc": "Burada görüntülenmelerini görmek için borçlarınızı ekleyin",
+    "@emptyDebtsDesc": {
+        "description": "Görüntülenmelerini görmek için borçlarınızı buraya ekleyin "
+    },
+    "emptyCredit": "Şu anda kredi yok",
+    "@emptyCredit": {
+        "description": "Şu anda kredi yok "
+    },
+    "emptyCreditDesc": "Burada görüntülenmelerini görmek için kredilerinizi ekleyin",
+    "@emptyCreditDesc": {
+        "description": "Görüntülenmelerini görmek için kredilerinizi buraya ekleyin "
+    },
+    "enterInitialAmount": "Başlangıç tutarını girin",
+    "@enterInitialAmount": {
+        "description": "Başlangıç tutarını girin "
+    },
+    "enterNumberOptional": "Son 4 haneyi girin (isteğe bağlı)",
+    "@enterNumberOptional": {
+        "description": "İsteğe bağlı sayı"
+    },
+    "enterAccountName": "Hesap adını girin",
+    "@enterAccountName": {
+        "description": "Hesap adını girin "
+    },
+    "enterCardHolderName": "Kart sahibinin adını girin",
+    "@enterCardHolderName": {
+        "description": "Hesap adını girin "
+    },
+    "search": "Ara",
+    "@search": {
+        "description": "Ara "
+    },
+    "addNew": "Yeni ekle",
+    "@addNew": {
+        "description": "Yeni ekle "
+    },
+    "delete": "Sil",
+    "@delete": {
+        "description": "Sil "
+    },
+    "appBarSearch": "Giderleri, hesapları, kategorileri ara",
+    "@appBarSearch": {
+        "description": "Sil "
+    },
+    "noTransaction": "İşlemde boş",
+    "@noTransaction": {
+        "description": "İşlemde boş"
+    },
+    "enterSymbol": "Sembol girin",
+    "@enterSymbol": {
+        "description": "Sembol girin"
+    },
+    "leftSymbol": "Soldaki sembol",
+    "@leftSymbol": {
+        "description": "Soldaki sembol "
+    },
+    "rightSymbol": "Sağdaki sembol",
+    "@rightSymbol": {
+        "description": "Sağdaki sembol "
+    },
+    "customSymbol": "Özel sembol",
+    "@customSymbol": {
+        "description": "Özel sembol "
+    },
+    "intoTitle": "Tasarruflarınızı kontrol etmenin basit yolu",
+    "@intoTitle": {
+        "description": "Giriş sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "intoSummary1": "Uygulamamızla paranızı yönetin",
+    "@intoSummary1": {
+        "description": "Giriş sayfasında gösterilen ipucu mesajı 1",
+        "type": "text"
+    },
+    "intoSummary2": "Daha iyi bir bütçe için kolay gider takibi",
+    "@intoSummary2": {
+        "description": "Giriş sayfasında gösterilen ipucu mesajı 2",
+        "type": "text"
+    },
+    "intoSummary3": "İstediğiniz zaman, istediğiniz yerde harcamalarınızı takip edin",
+    "@intoSummary3": {
+        "description": "Giriş sayfasında gösterilen ipucu mesajı 3",
+        "type": "text"
+    },
+    "introCTA": "Başlayın",
+    "@introCTA": {
+        "description": "Giriş ekranı düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "deleteDebtOrCredit": "Borcun veya kredinin silinmesi, bununla ilgili tüm kayıtları siler",
+    "@deleteDebtOrCredit": {
+        "description": "Borç veya krediyi sil ",
+        "type": "text"
+    },
+    "backupAndRestoreJSONTitle": "Verileri JSON dosyası olarak dışa aktar",
+    "@backupAndRestoreJSONTitle": {
+        "description": "Dışa aktarma ve içe aktarma sayfasında gösterilen bölüm başlığı metni",
+        "type": "text"
+    },
+    "backupAndRestoreJSONDesc": "Dosya, kaydetmek için oluşturulan ve dışa aktarılan düz bir JSON dosyası olacaktır. Gelecekte Paisa'da herhangi bir değişiklik olması durumunda, bu dosyanın içe aktarılmasının geçersiz olacağını lütfen unutmayın.",
+    "@backupAndRestoreJSONDesc": {
+        "description": "İçe aktarma ve dışa aktarma ekranında gösterilen mesaj",
+        "type": "text"
+    },
+    "emptyBudgetMessageTitle": "Hiçbir kategori için bütçe belirlenmedi",
+    "@emptyBudgetMessageTitle": {
+        "description": "Bütçe olmadığında bütçe ekranında gösterilen başlık metni",
+        "type": "text"
+    },
+    "emptyBudgetMessageSubTitle": "Herhangi bir kategori için bir bütçe belirleyin ve bu kategori burada görünecektir",
+    "@emptyBudgetMessageSubTitle": {
+        "description": "Bütçe olmadığında bütçe ekranında gösterilen altyazı metni",
+        "type": "text"
+    },
+    "recurringEmptyMessageTitle": "Yinelenen etkinlik yok mu?",
+    "@recurringEmptyMessageTitle": {
+        "description": "Etkinlik olmadığında yinelenen sayfada gösterilen başlık metni",
+        "type": "text"
+    },
+    "recurringEmptyMessageSubTitle": "Burada görüntülemek için yinelenen etkinlikler ekleyin",
+    "@recurringEmptyMessageSubTitle": {
+        "description": "Etkinlik olmadığında yinelenen sayfada gösterilen altyazı metni",
+        "type": "text"
+    },
+    "recurringAction": "Yinelenen etkinlikler ekle",
+    "@recurringAction": {
+        "description": "Yinelenen eylem düğmesinde gösterilen metin",
+        "type": "text"
+    },
+    "sortList": "Sıralama listesi",
+    "@sortList": {
+        "description": "Sıralama iletişim kutusunda gösterilen başlık metni",
+        "type": "text"
+    },
+    "smallSizeFab": "Küçük boy FAB",
+    "@smallSizeFab": {
+        "description": "FAB boyutu seçeneği için ayarlar sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "smallSizeFabMessage": "Tüm ekranlarda küçük boyutlu eylem düğmesini göster",
+    "@smallSizeFabMessage": {
+        "description": "FAB boyutu seçeneği için ayarlar sayfasında gösterilen başlık metni",
+        "type": "text"
+    },
+    "selectDateErrorMessage": "Tarih seçin",
+    "@selectDateErrorMessage": {
+        "description": "Borç ödemesinde tarih seçilmediğinde gösterilen mesaj ",
+        "type": "text"
+    },
+    "edit": "Düzenle",
+    "@edit": {
+        "description": "Düğmelerde gösterilen metin",
+        "type": "text"
+    },
+    "fromAccount": "Hesabı şuradan aktar",
+    "@fromAccount": {
+        "description": "İşlem sayfasındaki havale bölümünde hesabın başlık bölümünde gösterilen metin",
+        "type": "text"
+    },
+    "toAccount": "Hesabı şuraya aktar",
+    "@toAccount": {
+        "description": "İşlem sayfasındaki havale bölümünde hesabın başlık bölümünde gösterilen metin",
+        "type": "text"
+    },
+    "paisaLocked": "Paisa Kilitli",
+    "@paisaLocked": {
+        "description": "Biyometrik ekranın başlık bölümünde gösterilen metin",
+        "type": "text"
+    },
+    "authenticate": "Kimlik doğrulaması yap",
+    "@authenticate": {
+        "description": "Buton biyometrik ekranında gösterilen metin",
+        "type": "text"
+    },
+    "biometricMessage": "Parmak izi sensörüne dokunun",
+    "@biometricMessage": {
+        "description": "Simgenin altındaki biyometrik ekranda gösterilen metin",
+        "type": "text"
+    },
+    "addedCategories": "Kategoriler eklendi",
+    "@addedCategories": {
+        "description": "Kategori ekle bölümü başlığında gösterilen metin",
+        "type": "text"
+    },
+    "back": "Geri",
+    "@back": {
+        "description": "Giriş sayfasındaki düğmede gösterilen metin",
+        "type": "text"
+    },
+    "recommendedCategories": "Önerilen kategoriler",
+    "@recommendedCategories": {
+        "description": "Kategori ekle bölümü başlığında gösterilen metin",
+        "type": "text"
+    },
+    "addedAccounts": "Seçili hesaplar",
+    "@addedAccounts": {
+        "description": "Hesap ekle bölümü başlığında gösterilen metin",
+        "type": "text"
+    },
+    "recommendedAccounts": "Önerilen hesaplar",
+    "@recommendedAccounts": {
+        "description": "Hesap ekle bölümü başlığında gösterilen metin",
+        "type": "text"
+    },
+    "total": "Toplam",
+    "@total": {
+        "description": "Ana ekranda gösterilen metin toplam karttaki alt başlık",
+        "type": "text"
+    },
+    "colorsUI": "Renkler ve Kullanıcı Arayüzü",
+    "@colorsUI": {
+        "description": "Ayarlar ekranındaki bölüm başlığında gösterilen metin",
+        "type": "text"
+    },
+    "more": "Daha fazla",
+    "@more": {
+        "description": "Simge seçici ekranındaki düğmede gösterilen metin",
+        "type": "text"
+    },
+    "chooseIcon": "Simge seçin",
+    "@chooseIcon": {
+        "description": "Simge seçici ekranında gösterilen başlık metni",
+        "type": "text"
+    },
+    "transferCategory": "Transfer kategorisi",
+    "@transferCategory": {
+        "description": "Gösterilen metin, varsayılan kategori eklemek için kategori ekleme sayfası ",
+        "type": "text"
+    },
+    "accountStyle": "Hesap stili",
+    "@accountStyle": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "accountStyleDescription": "Tercih ettiğiniz hesap görüntüleme stilini seçin: dikey veya yatay",
+    "@accountStyleDescription": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "supportMe": "Beni destekle",
+    "@supportMe": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "supportMeDescription": "Sıkı çalışmam için küçük bir ödülü hak ettiğimi düşünüyorsanız, bana sanal bir bira satın alabilirsiniz.",
+    "@supportMeDescription": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "lockAppDescription": "Etkinleştirildiğinde, Paisa'yı açmak için parmak izi kullanman gerekir.",
+    "@lockAppDescription": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "fontStyle": "Yazı stili",
+    "@fontStyle": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "fontStyleDescription": "Uygulamanızın görünümünü kişiselleştirmek için yazı tipi stilini değiştirin. Tercihlerinize uyacak ve okunabilirliği artıracak çeşitli yazı tipi seçenekleri arasından seçim yapın.",
+    "@fontStyleDescription": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "chooseFont": "Yazı tipi seçin",
+    "@chooseFont": {
+        "description": "Yazı tipi seçimi iletişim başlığında gösterilen metin",
+        "type": "text"
+    },
+    "chooseAppLanguage": "Dil seçin",
+    "@chooseAppLanguage": {
+        "description": "Uygulama dili seçimi iletişim başlığında gösterilen metin",
+        "type": "text"
+    },
+    "appLanguage": "Uygulama dili",
+    "@appLanguage": {
+        "description": "Ayarlar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "excludeAccount": "Hesabı hariç tut",
+    "@excludeAccount": {
+        "description": "Hesabın özetlenmesini engellemek için hesap ekle sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "accountNotFound": "Hesap bulunamadı!",
+    "@accountNotFound": {
+        "description": "Hesap bulunamadığında snackbarda gösterilen metin",
+        "type": "text"
+    },
+    "bankNameError": "Banka adı ayarla",
+    "@bankNameError": {
+        "description": "Hesap eklerken snackbarda gösterilen metin",
+        "type": "text"
+    },
+    "holderNameError": "Hesap sahibinin adını belirleyin",
+    "@holderNameError": {
+        "description": "Hesap eklerken snackbarda gösterilen metin",
+        "type": "text"
+    },
+    "accountColorError": "Hesap rengi adını ayarla",
+    "@accountColorError": {
+        "description": "Hesap eklerken snackbarda gösterilen metin",
+        "type": "text"
+    },
+    "emptySelectedAccountsInfo": "Başlamak için yukarıdan hesap seçin",
+    "@accountsIntroInfo": {
+        "description": "Giriş sayfası hesap bilgilerinde gösterilen metin",
+        "type": "text"
+    },
+    "emptyRecommendedAccountsInfo": "Eklenecek hesap kalmadı",
+    "@emptyRecommendedAccountsInfo": {
+        "description": "Giriş sayfası hesap bilgilerinde gösterilen metin",
+        "type": "text"
+    },
+    "transferCategorySubtitle": "Hesaplar arasında transferlere izin ver",
+    "@transferCategorySubtitle": {
+        "description": "Gösterilen metin, varsayılan kategori eklemek için kategori ekleme sayfası ",
+        "type": "text"
+    },
+    "currencySelectorError": "Lütfen para birimi seçin",
+    "@currencySelectorError": {
+        "description": "Para birimi seçilmediğinde gösterilen metin",
+        "type": "text"
+    },
+    "justBlackText": "Sadece siyah",
+    "@justBlackText": {
+        "description": "Siyah temayı etkinleştirmek için ayar sayfasında gösterilen metin",
+        "type": "text"
+    },
+    "dateAndTime": "Tarih ve saat",
+    "@dateAndTime": {
+        "description": "İşlem sayfası alt başlığında gösterilen metin",
+        "type": "text"
+    },
+    "goals": "Hedefler",
+    "@goals": {
+        "description": "Navigasyon çekmecesi öğesinde gösterilen metin",
+        "type": "text"
+    },
+    "addGoalTooltip": "Hedef Ekle",
+    "@addGoalTooltip": {
+        "description": "Hedefler ekle düğmesinde gösterilen araç ipucu",
+        "type": "text"
+    }
+}

@@ -22,13 +22,16 @@ class HomeCubit extends Cubit<HomeState> {
     this.getAccountUseCase,
     this.getCategoryUseCase,
     this.getExpensesFromCategoryIdUseCase,
+    this._getTransactionsByAccountIdUseCase,
   ) : super(const HomeState.currentIndex(0));
 
-  final GetTransactionsUseCase expensesUseCase;
   final GetDefaultCategoriesUseCase defaultCategoriesUseCase;
+  final GetTransactionsUseCase expensesUseCase;
   final GetAccountUseCase getAccountUseCase;
   final GetCategoryUseCase getCategoryUseCase;
   final GetTransactionsByCategoryIdUseCase getExpensesFromCategoryIdUseCase;
+
+  final GetTransactionsByAccountIdUseCase _getTransactionsByAccountIdUseCase;
 
   PageType getPageFromIndex() {
     switch (state.index) {
@@ -65,6 +68,10 @@ class HomeCubit extends Cubit<HomeState> {
   List<TransactionEntity> fetchExpensesFromCategoryId(int categoryId) =>
       getExpensesFromCategoryIdUseCase(
           ParamsGetTransactionsByCategoryId(categoryId));
+
+  List<TransactionEntity> fetchTransactionsFromAccountId(int accountId) =>
+      _getTransactionsByAccountIdUseCase(
+          ParamsGetTransactionsByAccountId(accountId));
 }
 
 @freezed

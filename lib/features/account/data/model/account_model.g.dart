@@ -21,9 +21,9 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
       bankName: fields[3] as String,
       cardType: fields[6] == null ? CardType.bank : fields[6] as CardType,
       superId: fields[7] as int?,
-      amount: fields[8] == null ? 0 : fields[8] as double?,
-      color: fields[9] == null ? 4294951175 : fields[9] as int?,
-      isAccountExcluded: fields[21] == null ? false : fields[21] as bool?,
+      amount: fields[8] == null ? 0 : fields[8] as double,
+      color: fields[9] == null ? 4294951175 : fields[9] as int,
+      isAccountExcluded: fields[21] == null ? false : fields[21] as bool,
     );
   }
 
@@ -69,9 +69,9 @@ _$AccountModelImpl _$$AccountModelImplFromJson(Map<String, dynamic> json) =>
       cardType: $enumDecodeNullable(_$CardTypeEnumMap, json['cardType']) ??
           CardType.bank,
       superId: (json['superId'] as num?)?.toInt(),
-      amount: (json['amount'] as num?)?.toDouble(),
-      color: (json['color'] as num?)?.toInt(),
-      isAccountExcluded: json['isAccountExcluded'] as bool?,
+      amount: (json['amount'] as num?)?.toDouble() ?? 0.0,
+      color: (json['color'] as num?)?.toInt() ?? 0xFFFFC107,
+      isAccountExcluded: json['isAccountExcluded'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$AccountModelImplToJson(_$AccountModelImpl instance) =>

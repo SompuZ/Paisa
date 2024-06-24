@@ -7,9 +7,9 @@ abstract class AccountRepository {
     required String bankName,
     required String holderName,
     required CardType cardType,
-    double? amount,
-    int? color,
-    bool? isAccountExcluded,
+    double amount = 0,
+    int color = 0xFFFFC107,
+    bool isAccountExcluded = false,
   });
 
   Future<void> update({
@@ -17,9 +17,9 @@ abstract class AccountRepository {
     required String bankName,
     required String holderName,
     required CardType cardType,
-    double? amount,
-    int? color,
-    bool? isAccountExcluded,
+    double amount = 0,
+    int color = 0xFFFFC107,
+    bool isAccountExcluded = false,
   });
 
   Future<void> delete(int key);

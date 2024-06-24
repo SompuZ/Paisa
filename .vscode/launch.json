@@ -26,17 +26,5 @@
                 "lib/main.dart"
             ]
         },
-        {
-            "name": "[Profile] Paisa",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile",
-            "args": [
-                "--flavor",
-                "dev",
-                "--target",
-                "lib/main.dart"
-            ]
-        }
     ]
 }

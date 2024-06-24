@@ -18,10 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddAccountParams {
   String get bankName => throw _privateConstructorUsedError;
   String get holderName => throw _privateConstructorUsedError;
-  double? get amount => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
   CardType get cardType => throw _privateConstructorUsedError;
-  int? get color => throw _privateConstructorUsedError;
-  bool? get isAccountExcluded => throw _privateConstructorUsedError;
+  int get color => throw _privateConstructorUsedError;
+  bool get isAccountExcluded => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddAccountParamsCopyWith<AddAccountParams> get copyWith =>
@@ -37,10 +37,10 @@ abstract class $AddAccountParamsCopyWith<$Res> {
   $Res call(
       {String bankName,
       String holderName,
-      double? amount,
+      double amount,
       CardType cardType,
-      int? color,
-      bool? isAccountExcluded});
+      int color,
+      bool isAccountExcluded});
 }
 
 /// @nodoc
@@ -58,10 +58,10 @@ class _$AddAccountParamsCopyWithImpl<$Res, $Val extends AddAccountParams>
   $Res call({
     Object? bankName = null,
     Object? holderName = null,
-    Object? amount = freezed,
+    Object? amount = null,
     Object? cardType = null,
-    Object? color = freezed,
-    Object? isAccountExcluded = freezed,
+    Object? color = null,
+    Object? isAccountExcluded = null,
   }) {
     return _then(_value.copyWith(
       bankName: null == bankName
@@ -72,22 +72,22 @@ class _$AddAccountParamsCopyWithImpl<$Res, $Val extends AddAccountParams>
           ? _value.holderName
           : holderName // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: freezed == amount
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
               as CardType,
-      color: freezed == color
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isAccountExcluded: freezed == isAccountExcluded
+              as int,
+      isAccountExcluded: null == isAccountExcluded
           ? _value.isAccountExcluded
           : isAccountExcluded // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ) as $Val);
   }
 }
@@ -103,10 +103,10 @@ abstract class _$$AddAccountParamsImplCopyWith<$Res>
   $Res call(
       {String bankName,
       String holderName,
-      double? amount,
+      double amount,
       CardType cardType,
-      int? color,
-      bool? isAccountExcluded});
+      int color,
+      bool isAccountExcluded});
 }
 
 /// @nodoc
@@ -122,10 +122,10 @@ class __$$AddAccountParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? bankName = null,
     Object? holderName = null,
-    Object? amount = freezed,
+    Object? amount = null,
     Object? cardType = null,
-    Object? color = freezed,
-    Object? isAccountExcluded = freezed,
+    Object? color = null,
+    Object? isAccountExcluded = null,
   }) {
     return _then(_$AddAccountParamsImpl(
       bankName: null == bankName
@@ -136,22 +136,22 @@ class __$$AddAccountParamsImplCopyWithImpl<$Res>
           ? _value.holderName
           : holderName // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: freezed == amount
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
               as CardType,
-      color: freezed == color
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isAccountExcluded: freezed == isAccountExcluded
+              as int,
+      isAccountExcluded: null == isAccountExcluded
           ? _value.isAccountExcluded
           : isAccountExcluded // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -162,24 +162,27 @@ class _$AddAccountParamsImpl implements _AddAccountParams {
   const _$AddAccountParamsImpl(
       {required this.bankName,
       required this.holderName,
-      this.amount,
+      this.amount = 0.0,
       this.cardType = CardType.cash,
-      this.color,
-      this.isAccountExcluded});
+      this.color = 0xFFFFFFFF,
+      this.isAccountExcluded = false});
 
   @override
   final String bankName;
   @override
   final String holderName;
   @override
-  final double? amount;
+  @JsonKey()
+  final double amount;
   @override
   @JsonKey()
   final CardType cardType;
   @override
-  final int? color;
+  @JsonKey()
+  final int color;
   @override
-  final bool? isAccountExcluded;
+  @JsonKey()
+  final bool isAccountExcluded;
 
   @override
   String toString() {
@@ -219,23 +222,23 @@ abstract class _AddAccountParams implements AddAccountParams {
   const factory _AddAccountParams(
       {required final String bankName,
       required final String holderName,
-      final double? amount,
+      final double amount,
       final CardType cardType,
-      final int? color,
-      final bool? isAccountExcluded}) = _$AddAccountParamsImpl;
+      final int color,
+      final bool isAccountExcluded}) = _$AddAccountParamsImpl;
 
   @override
   String get bankName;
   @override
   String get holderName;
   @override
-  double? get amount;
+  double get amount;
   @override
   CardType get cardType;
   @override
-  int? get color;
+  int get color;
   @override
-  bool? get isAccountExcluded;
+  bool get isAccountExcluded;
   @override
   @JsonKey(ignore: true)
   _$$AddAccountParamsImplCopyWith<_$AddAccountParamsImpl> get copyWith =>

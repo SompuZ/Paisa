@@ -9,18 +9,18 @@ import 'package:paisa/features/transaction/domain/repository/transaction_reposit
 @lazySingleton
 class GetTransactionsByAccountIdUseCase
     implements
-        UseCase<List<TransactionEntity>, GetTransactionsByAccountIdParams> {
+        UseCase<List<TransactionEntity>, ParamsGetTransactionsByAccountId> {
   GetTransactionsByAccountIdUseCase({required this.expenseRepository});
 
   final TransactionRepository expenseRepository;
 
   @override
-  List<TransactionEntity> call(GetTransactionsByAccountIdParams params) =>
+  List<TransactionEntity> call(ParamsGetTransactionsByAccountId params) =>
       expenseRepository.fetchExpensesFromAccountId(params.accountId);
 }
 
-class GetTransactionsByAccountIdParams {
-  GetTransactionsByAccountIdParams(this.accountId);
+class ParamsGetTransactionsByAccountId {
+  ParamsGetTransactionsByAccountId(this.accountId);
 
   final int accountId;
 }

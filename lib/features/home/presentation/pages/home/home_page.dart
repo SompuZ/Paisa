@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/core/extensions/color_extension.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -60,8 +61,8 @@ final destinations = [
   ), */
 ];
 
-class LandingPage extends StatelessWidget {
-  const LandingPage({
+class HomePage extends StatelessWidget {
+  const HomePage({
     super.key,
   });
 
@@ -71,13 +72,13 @@ class LandingPage extends StatelessWidget {
       summaryController: getIt<SummaryController>(),
     );
     return PaisaAnnotatedRegionWidget(
-      child: WillPopScope(
-        onWillPop: () async {
-          if (context.read<HomeCubit>().state.index == 0) {
-            return true;
+      color: context.surface,
+      child: PopScope(
+        canPop: context.read<HomeCubit>().state.index != 0,
+        onPopInvoked: (didPop) {
+          if (didPop) {
+            context.read<HomeCubit>().setCurrentIndex(0);
           }
-          context.read<HomeCubit>().setCurrentIndex(0);
-          return false;
         },
         child: ScreenTypeLayout.builder(
           mobile: (p0) => HomeMobileWidget(

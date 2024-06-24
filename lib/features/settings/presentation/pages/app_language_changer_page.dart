@@ -143,5 +143,6 @@ class Languages {
     LanguageEntity(code: 'vi', value: 'Vietnamese'),
     LanguageEntity(code: 'zh', value: 'Chinese'),
     LanguageEntity(code: 'zh_TW', value: 'Traditional Chinese'),
+    LanguageEntity(code: 'gu', value: 'Gujarati (IN)'),
   ];
 }

@@ -1,7 +1,8 @@
 {
   "ar": [
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "be": [
@@ -28,7 +29,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "cs": [
@@ -38,7 +40,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "de": [
@@ -52,12 +55,14 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "es": [
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "fr": [
@@ -76,7 +81,12 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
+  ],
+
+  "gu": [
+    "emptyRecommendedAccountsInfo"
   ],
 
   "it": [
@@ -109,7 +119,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "kn": [
@@ -134,7 +145,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "ne": [
@@ -144,7 +156,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "pl": [
@@ -164,7 +177,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "pt": [
@@ -189,7 +203,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "ru": [
@@ -216,7 +231,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "ta": [
@@ -227,7 +243,12 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
+  ],
+
+  "tr": [
+    "customize"
   ],
 
   "uk": [
@@ -237,7 +258,8 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "vi": [
@@ -248,30 +270,12 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ],
 
   "zh": [
-    "defaultAccount",
-    "deletedCategory",
-    "pickColorAccountDesc",
-    "transactionsByCategory",
-    "creatingBackupSuccess",
-    "restoringBackupSuccess",
-    "back",
-    "excludeAccount",
-    "accountNotFound",
-    "bankNameError",
-    "holderNameError",
-    "accountColorError",
-    "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle",
-    "currencySelectorError",
-    "justBlackText",
-    "dateAndTime",
-    "goals",
-    "addGoalTooltip"
+    "customize"
   ],
 
   "zh_TW": [
@@ -291,6 +295,7 @@
     "justBlackText",
     "dateAndTime",
     "goals",
-    "addGoalTooltip"
+    "addGoalTooltip",
+    "customize"
   ]
 }

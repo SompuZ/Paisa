@@ -9,15 +9,15 @@ part of 'country_entity.dart';
 _$CountryEntityImpl _$$CountryEntityImplFromJson(Map<String, dynamic> json) =>
     _$CountryEntityImpl(
       code: json['code'] as String,
-      decimalDigits: (json['decimalDigits'] as num?)?.toInt(),
-      decimalSeparator: json['decimalSeparator'] as String?,
+      decimalDigits: (json['decimalDigits'] as num).toInt(),
+      decimalSeparator: json['decimalSeparator'] as String,
       name: json['name'] as String,
-      namePlural: json['namePlural'] as String?,
+      namePlural: json['namePlural'] as String,
       number: (json['number'] as num).toInt(),
       pattern: json['pattern'] as String,
-      spaceBetweenAmountAndSymbol: json['spaceBetweenAmountAndSymbol'] as bool?,
-      symbol: json['symbol'] as String?,
-      symbolOnLeft: json['symbolOnLeft'] as bool?,
+      spaceBetweenAmountAndSymbol: json['spaceBetweenAmountAndSymbol'] as bool,
+      symbol: json['symbol'] as String,
+      symbolOnLeft: json['symbolOnLeft'] as bool,
       thousandsSeparator: json['thousandsSeparator'] as String,
     );
 

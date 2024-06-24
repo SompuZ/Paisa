@@ -12,14 +12,14 @@ extension MappingOnDouble on double {
   String toFormateCurrency(BuildContext context) {
     final CountryEntity country = Provider.of<CountryEntity>(context);
     final formatter = NumberFormat.currency(customPattern: country.pattern);
-    if (country.symbolOnLeft ?? false) {
-      return '${country.symbol}${country.spaceBetweenAmountAndSymbol ?? false ? ' ' : ''}${formatter.format(this)}'
+    if (country.symbolOnLeft) {
+      return '${country.symbol}${country.spaceBetweenAmountAndSymbol ? ' ' : ''}${formatter.format(this)}'
           .replaceAll(',', country.thousandsSeparator)
-          .replaceAll('.', country.decimalSeparator ?? '.');
+          .replaceAll('.', country.decimalSeparator);
     } else {
-      return '${formatter.format(this)}${country.spaceBetweenAmountAndSymbol ?? false ? ' ' : ''}${country.symbol}'
+      return '${formatter.format(this)}${country.spaceBetweenAmountAndSymbol ? ' ' : ''}${country.symbol}'
           .replaceAll(',', country.thousandsSeparator)
-          .replaceAll('.', country.decimalSeparator ?? '.');
+          .replaceAll('.', country.decimalSeparator);
     }
   }
 }

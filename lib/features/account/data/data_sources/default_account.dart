@@ -11,20 +11,17 @@ List<AccountModel> defaultAccountsData() {
       name: 'User name',
       bankName: 'Cash',
       cardType: CardType.cash,
-      amount: 0.0,
       color: Colors.primaries[0].value,
     ),
     AccountModel(
       name: 'User name',
       bankName: 'Bank',
-      amount: 0.0,
       color: Colors.primaries[1].value,
     ),
     AccountModel(
       name: 'User name',
       bankName: 'Wallet',
       cardType: CardType.wallet,
-      amount: 0.0,
       color: Colors.primaries[2].value,
     ),
   ];

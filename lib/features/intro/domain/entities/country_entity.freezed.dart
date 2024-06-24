@@ -21,15 +21,15 @@ CountryEntity _$CountryEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CountryEntity {
   String get code => throw _privateConstructorUsedError;
-  int? get decimalDigits => throw _privateConstructorUsedError;
-  String? get decimalSeparator => throw _privateConstructorUsedError;
+  int get decimalDigits => throw _privateConstructorUsedError;
+  String get decimalSeparator => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String? get namePlural => throw _privateConstructorUsedError;
+  String get namePlural => throw _privateConstructorUsedError;
   int get number => throw _privateConstructorUsedError;
   String get pattern => throw _privateConstructorUsedError;
-  bool? get spaceBetweenAmountAndSymbol => throw _privateConstructorUsedError;
-  String? get symbol => throw _privateConstructorUsedError;
-  bool? get symbolOnLeft => throw _privateConstructorUsedError;
+  bool get spaceBetweenAmountAndSymbol => throw _privateConstructorUsedError;
+  String get symbol => throw _privateConstructorUsedError;
+  bool get symbolOnLeft => throw _privateConstructorUsedError;
   String get thousandsSeparator => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,15 +46,15 @@ abstract class $CountryEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {String code,
-      int? decimalDigits,
-      String? decimalSeparator,
+      int decimalDigits,
+      String decimalSeparator,
       String name,
-      String? namePlural,
+      String namePlural,
       int number,
       String pattern,
-      bool? spaceBetweenAmountAndSymbol,
-      String? symbol,
-      bool? symbolOnLeft,
+      bool spaceBetweenAmountAndSymbol,
+      String symbol,
+      bool symbolOnLeft,
       String thousandsSeparator});
 }
 
@@ -72,15 +72,15 @@ class _$CountryEntityCopyWithImpl<$Res, $Val extends CountryEntity>
   @override
   $Res call({
     Object? code = null,
-    Object? decimalDigits = freezed,
-    Object? decimalSeparator = freezed,
+    Object? decimalDigits = null,
+    Object? decimalSeparator = null,
     Object? name = null,
-    Object? namePlural = freezed,
+    Object? namePlural = null,
     Object? number = null,
     Object? pattern = null,
-    Object? spaceBetweenAmountAndSymbol = freezed,
-    Object? symbol = freezed,
-    Object? symbolOnLeft = freezed,
+    Object? spaceBetweenAmountAndSymbol = null,
+    Object? symbol = null,
+    Object? symbolOnLeft = null,
     Object? thousandsSeparator = null,
   }) {
     return _then(_value.copyWith(
@@ -88,22 +88,22 @@ class _$CountryEntityCopyWithImpl<$Res, $Val extends CountryEntity>
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      decimalDigits: freezed == decimalDigits
+      decimalDigits: null == decimalDigits
           ? _value.decimalDigits
           : decimalDigits // ignore: cast_nullable_to_non_nullable
-              as int?,
-      decimalSeparator: freezed == decimalSeparator
+              as int,
+      decimalSeparator: null == decimalSeparator
           ? _value.decimalSeparator
           : decimalSeparator // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      namePlural: freezed == namePlural
+      namePlural: null == namePlural
           ? _value.namePlural
           : namePlural // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -112,18 +112,18 @@ class _$CountryEntityCopyWithImpl<$Res, $Val extends CountryEntity>
           ? _value.pattern
           : pattern // ignore: cast_nullable_to_non_nullable
               as String,
-      spaceBetweenAmountAndSymbol: freezed == spaceBetweenAmountAndSymbol
+      spaceBetweenAmountAndSymbol: null == spaceBetweenAmountAndSymbol
           ? _value.spaceBetweenAmountAndSymbol
           : spaceBetweenAmountAndSymbol // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      symbol: freezed == symbol
+              as bool,
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
-      symbolOnLeft: freezed == symbolOnLeft
+              as String,
+      symbolOnLeft: null == symbolOnLeft
           ? _value.symbolOnLeft
           : symbolOnLeft // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       thousandsSeparator: null == thousandsSeparator
           ? _value.thousandsSeparator
           : thousandsSeparator // ignore: cast_nullable_to_non_nullable
@@ -142,15 +142,15 @@ abstract class _$$CountryEntityImplCopyWith<$Res>
   @useResult
   $Res call(
       {String code,
-      int? decimalDigits,
-      String? decimalSeparator,
+      int decimalDigits,
+      String decimalSeparator,
       String name,
-      String? namePlural,
+      String namePlural,
       int number,
       String pattern,
-      bool? spaceBetweenAmountAndSymbol,
-      String? symbol,
-      bool? symbolOnLeft,
+      bool spaceBetweenAmountAndSymbol,
+      String symbol,
+      bool symbolOnLeft,
       String thousandsSeparator});
 }
 
@@ -166,15 +166,15 @@ class __$$CountryEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? code = null,
-    Object? decimalDigits = freezed,
-    Object? decimalSeparator = freezed,
+    Object? decimalDigits = null,
+    Object? decimalSeparator = null,
     Object? name = null,
-    Object? namePlural = freezed,
+    Object? namePlural = null,
     Object? number = null,
     Object? pattern = null,
-    Object? spaceBetweenAmountAndSymbol = freezed,
-    Object? symbol = freezed,
-    Object? symbolOnLeft = freezed,
+    Object? spaceBetweenAmountAndSymbol = null,
+    Object? symbol = null,
+    Object? symbolOnLeft = null,
     Object? thousandsSeparator = null,
   }) {
     return _then(_$CountryEntityImpl(
@@ -182,22 +182,22 @@ class __$$CountryEntityImplCopyWithImpl<$Res>
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      decimalDigits: freezed == decimalDigits
+      decimalDigits: null == decimalDigits
           ? _value.decimalDigits
           : decimalDigits // ignore: cast_nullable_to_non_nullable
-              as int?,
-      decimalSeparator: freezed == decimalSeparator
+              as int,
+      decimalSeparator: null == decimalSeparator
           ? _value.decimalSeparator
           : decimalSeparator // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      namePlural: freezed == namePlural
+      namePlural: null == namePlural
           ? _value.namePlural
           : namePlural // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -206,18 +206,18 @@ class __$$CountryEntityImplCopyWithImpl<$Res>
           ? _value.pattern
           : pattern // ignore: cast_nullable_to_non_nullable
               as String,
-      spaceBetweenAmountAndSymbol: freezed == spaceBetweenAmountAndSymbol
+      spaceBetweenAmountAndSymbol: null == spaceBetweenAmountAndSymbol
           ? _value.spaceBetweenAmountAndSymbol
           : spaceBetweenAmountAndSymbol // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      symbol: freezed == symbol
+              as bool,
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
-      symbolOnLeft: freezed == symbolOnLeft
+              as String,
+      symbolOnLeft: null == symbolOnLeft
           ? _value.symbolOnLeft
           : symbolOnLeft // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       thousandsSeparator: null == thousandsSeparator
           ? _value.thousandsSeparator
           : thousandsSeparator // ignore: cast_nullable_to_non_nullable
@@ -231,15 +231,15 @@ class __$$CountryEntityImplCopyWithImpl<$Res>
 class _$CountryEntityImpl implements _CountryEntity {
   _$CountryEntityImpl(
       {required this.code,
-      this.decimalDigits,
-      this.decimalSeparator,
+      required this.decimalDigits,
+      required this.decimalSeparator,
       required this.name,
-      this.namePlural,
+      required this.namePlural,
       required this.number,
       required this.pattern,
-      this.spaceBetweenAmountAndSymbol,
-      this.symbol,
-      this.symbolOnLeft,
+      required this.spaceBetweenAmountAndSymbol,
+      required this.symbol,
+      required this.symbolOnLeft,
       required this.thousandsSeparator});
 
   factory _$CountryEntityImpl.fromJson(Map<String, dynamic> json) =>
@@ -248,23 +248,23 @@ class _$CountryEntityImpl implements _CountryEntity {
   @override
   final String code;
   @override
-  final int? decimalDigits;
+  final int decimalDigits;
   @override
-  final String? decimalSeparator;
+  final String decimalSeparator;
   @override
   final String name;
   @override
-  final String? namePlural;
+  final String namePlural;
   @override
   final int number;
   @override
   final String pattern;
   @override
-  final bool? spaceBetweenAmountAndSymbol;
+  final bool spaceBetweenAmountAndSymbol;
   @override
-  final String? symbol;
+  final String symbol;
   @override
-  final bool? symbolOnLeft;
+  final bool symbolOnLeft;
   @override
   final String thousandsSeparator;
 
@@ -332,15 +332,15 @@ class _$CountryEntityImpl implements _CountryEntity {
 abstract class _CountryEntity implements CountryEntity {
   factory _CountryEntity(
       {required final String code,
-      final int? decimalDigits,
-      final String? decimalSeparator,
+      required final int decimalDigits,
+      required final String decimalSeparator,
       required final String name,
-      final String? namePlural,
+      required final String namePlural,
       required final int number,
       required final String pattern,
-      final bool? spaceBetweenAmountAndSymbol,
-      final String? symbol,
-      final bool? symbolOnLeft,
+      required final bool spaceBetweenAmountAndSymbol,
+      required final String symbol,
+      required final bool symbolOnLeft,
       required final String thousandsSeparator}) = _$CountryEntityImpl;
 
   factory _CountryEntity.fromJson(Map<String, dynamic> json) =
@@ -349,23 +349,23 @@ abstract class _CountryEntity implements CountryEntity {
   @override
   String get code;
   @override
-  int? get decimalDigits;
+  int get decimalDigits;
   @override
-  String? get decimalSeparator;
+  String get decimalSeparator;
   @override
   String get name;
   @override
-  String? get namePlural;
+  String get namePlural;
   @override
   int get number;
   @override
   String get pattern;
   @override
-  bool? get spaceBetweenAmountAndSymbol;
+  bool get spaceBetweenAmountAndSymbol;
   @override
-  String? get symbol;
+  String get symbol;
   @override
-  bool? get symbolOnLeft;
+  bool get symbolOnLeft;
   @override
   String get thousandsSeparator;
   @override

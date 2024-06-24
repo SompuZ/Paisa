@@ -30,9 +30,4 @@ class AccountState with _$AccountState {
 
   const factory AccountState.updateCardType(CardType cardType) =
       UpdateCardTypeState;
-
-  const factory AccountState.selectedAccount(
-    AccountEntity accountEntity,
-    List<TransactionEntity> transactions,
-  ) = AccountSelectedState;
 }
