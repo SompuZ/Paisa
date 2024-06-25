@@ -86,7 +86,10 @@
    - Navigate to the project directory and run `flutter pub get` to install the required dependencies.
 3. Run the App:
    - Connect a device or emulator and run the app using `flutter run --flavor dev` or through your IDE.
-
+4. Build App:
+   - For debug mode: `flutter build apk --flavor dev --no-tree-shake-icons`
+   - For release mode: `flutter build apk --no-tree-shake-icons --release --split-per-abi`
+   
 ### Download
 
 [<img alt='Get it on Google Play' width=256 height=100  src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/>](https://play.google.com/store/apps/details?id=dev.hemanths.paisa&hl=en_US&pli=1&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
