@@ -107,38 +107,48 @@ class _TransactionPageState extends State<TransactionPage> {
     final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
     print('>>>>>> GOT recognizedText:\n${recognizedText.text}');
 
+
     String getTransData(String text){
       String name='',amount='',details='';
 
       if(text.contains('Google transaction ID')){ //GPay
 
         List<String> parts=text.split('\n');
-        //print("part->"+parts[11]);
-        //details=parts[7];
 
-        double money=9999999999;
-        String receiver='';
+        String receiver = '';
+        double money = 0;
+        String dateTime = '';
+
         for(String part in parts){
-          if(part.contains("To:")){
+          if(receiver!='' && money!=0 && dateTime!='') break;
+          print('>>${part}<<');
+          // print('part.contains( am)='+part.contains(' am').toString());
+          // print('part.contains( pm)='+part.contains(' pm').toString());
+          // print('part.contains( To:)='+part.contains('To:').toString());
+          // print('text.contains(To )='+text.contains('To ').toString());
+
+          if (part.contains('To:') && text.contains("To ")) {
             receiver=part.replaceFirst("To:","");
-            continue;
           }
-          if(part.contains(" AM") || part.contains(" PM") ||
-              part.contains(" am") || part.contains(" pm")){
-            details=part;
-            continue;
+          else if(part.contains('From:') && text.contains("From ")) {
+            receiver=part.replaceFirst("From:","");
           }
-          String currencyStr=double.tryParse(part).toString();
-          if(currencyStr!="null"){
-            double temp=double.parse(currencyStr);
-            if(temp<money) {
-              money=temp;
+          else if (RegExp(r'\d').hasMatch(part) && money==0) {
+            String cleanedInput = part.replaceAll(',', ''); // Remove commas
+            cleanedInput = cleanedInput.replaceAll('O', '0'); // Replace 'O' with '0'
+            cleanedInput = cleanedInput.replaceAll('?', ''); // Remove ?
+            String currencyStr=double.tryParse(cleanedInput).toString();
+            if(currencyStr!='null'){
+              double temp=double.parse(currencyStr);
+              if(temp<999999) money=temp;
             }
+          } else if (part.contains(' am') || part.contains(' pm')) {
+            dateTime = part;
           }
-          print(part+"=="+currencyStr);
         }
         amount=money.toString();
         name=receiver;
+        details=dateTime;
 
       }else if(text.contains('Transaction Successful')){ //PhonePay
         List<String> parts=text.split('\n');
@@ -208,7 +218,7 @@ class _TransactionPageState extends State<TransactionPage> {
                 offset: state.transaction.name.length,
               );
               amountController.text = state.transaction.currency.toString();
-              print("Amount="+state.transaction.currency.toString());
+              print("Amount=${state.transaction.currency}");
               amountController.selection = TextSelection.collapsed(
                 offset: state.transaction.currency.toString().length,
               );
