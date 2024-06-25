@@ -244,7 +244,7 @@ class TransactionsByAccountPageData extends GoRouteData {
 }
 
 class TransactionPageData extends GoRouteData {
-  const TransactionPageData({
+   const TransactionPageData({
     this.accountId,
     this.categoryId,
     this.transactionId,
