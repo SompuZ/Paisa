@@ -20,24 +20,24 @@ class SummaryController {
 
   late final FilterExpense filterExpense = settingsUseCase.get<FilterExpense>(
     selectedFilterExpenseKey,
-    defaultValue: FilterExpense.daily,
+    defaultValue: FilterExpense.monthly,
   );
 
   late final ValueNotifier<FilterExpense> filterExpenseNotifier =
       ValueNotifier<FilterExpense>(filterExpense);
 
   final ValueNotifier<FilterExpense> notifyFilterExpense =
-      ValueNotifier(FilterExpense.daily);
+      ValueNotifier(FilterExpense.monthly);
 
   final SettingsUseCase settingsUseCase;
   late final FilterExpense sortHomeExpense = settingsUseCase.get<FilterExpense>(
     selectedHomeFilterExpenseKey,
-    defaultValue: FilterExpense.daily,
+    defaultValue: FilterExpense.monthly,
   );
 
   late final ValueNotifier<FilterExpense> sortHomeExpenseNotifier =
       ValueNotifier<FilterExpense>(sortHomeExpense);
 
   final ValueNotifier<TransactionType> typeNotifier =
-      ValueNotifier<TransactionType>(TransactionType.income);
+      ValueNotifier<TransactionType>(TransactionType.expense);
 }
