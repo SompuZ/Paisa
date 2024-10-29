@@ -82,7 +82,7 @@ class _TransactionPageState extends State<TransactionPage> {
       //print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
 
       if (value.isNotEmpty) {
-        _recognizeText(File(value.first.path)!);
+        _recognizeText(value.first.path);
         // Tell the library that we are done processing the intent.
         ReceiveSharingIntent.instance.reset();
       }
@@ -94,89 +94,112 @@ class _TransactionPageState extends State<TransactionPage> {
     ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
       //print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Value"+value.toString());
       if (value.isNotEmpty) {
-        _recognizeText(File(value.first.path)!);
+        _recognizeText(value.first.path);
         // Tell the library that we are done processing the intent.
         ReceiveSharingIntent.instance.reset();
       }
     });
   }
 
-  Future<void> _recognizeText(File image) async {
-    final textRecognizer = TextRecognizer();
-    final inputImage = InputImage.fromFile(image);
-    final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
-    print('>>>>>> GOT recognizedText:\n${recognizedText.text}');
+  Future<void> _recognizeText(String imagePath) async {
+    print("got file>>>>>>>>>>>>>>>>>"+imagePath);
 
+    if(imagePath.contains('/cache/')){  // Image File shared
 
-    String getTransData(String text){
-      String name='',amount='',details='';
+      final textRecognizer = TextRecognizer();
+      final inputImage = InputImage.fromFile(File(imagePath));
+      final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
+      print('>>>>>> GOT recognizedText:\n${recognizedText.text}');
 
-      if(text.contains('Google transaction ID')){ //GPay
+      setState(() {
+        List<String> values = getTransData(recognizedText.text).split('@');
+        nameController.text=values[0];
+        amountController.text=values[1];
+        descriptionController.text=values[2];
+      });
 
-        List<String> parts=text.split('\n');
+    }else{  //Text Shared
 
-        String receiver = '';
-        double money = 0;
-        String dateTime = '';
+      // Extract information using regular expressions
+      final receiverName = RegExp(r'for UPI to (.*?) on').firstMatch(imagePath)?.group(1)?.trim() ?? 'Unknown';
+      final amount = RegExp(r'Debit Rs\.([0-9.,]+)').firstMatch(imagePath)?.group(1) ?? '0.00';
+      final date = RegExp(r'on (\d{2}-\d{2}-\d{2})').firstMatch(imagePath)?.group(1) ?? 'Unknown';
 
-        for(String part in parts){
-          if(receiver!='' && money!=0 && dateTime!='') break;
-          print('>>${part}<<');
-          // print('part.contains( am)='+part.contains(' am').toString());
-          // print('part.contains( pm)='+part.contains(' pm').toString());
-          // print('part.contains( To:)='+part.contains('To:').toString());
-          // print('text.contains(To )='+text.contains('To ').toString());
+      // Output the extracted information
+      print('Receiver Name: $receiverName');
+      print('Amount: Rs.$amount');
+      print('Date: $date');
 
-          if (part.contains('To:') && text.contains("To ")) {
-            receiver=part.replaceFirst("To:","");
-          }
-          else if(part.contains('From:') && text.contains("From ")) {
-            receiver=part.replaceFirst("From:","");
-          }
-          else if (RegExp(r'\d').hasMatch(part) && money==0) {
-            String cleanedInput = part.replaceAll(',', ''); // Remove commas
-            cleanedInput = cleanedInput.replaceAll('O', '0'); // Replace 'O' with '0'
-            cleanedInput = cleanedInput.replaceAll('?', ''); // Remove ?
-            String currencyStr=double.tryParse(cleanedInput).toString();
-            if(currencyStr!='null'){
-              double temp=double.parse(currencyStr);
-              if(temp<999999) money=temp;
-            }
-          } else if (part.contains(' am') || part.contains(' pm')) {
-            dateTime = part;
-          }
-        }
-        amount=money.toString();
-        name=receiver;
-        details=dateTime;
-
-      }else if(text.contains('Transaction Successful')){ //PhonePay
-        List<String> parts=text.split('\n');
-        //print("part->"+parts[3]);
-
-        for(String part in parts){
-          if(part.contains(" AM") || part.contains(" PM") ||
-              part.contains(" am") || part.contains(" pm")){
-            details=part;
-            break;
-          }
-        }
-        name=parts[3];
-        //details=parts[2];
-        amount=parts[parts.length-1];
-
-      }
-      print('GOT Values----->$name@$amount@$details');
-      return '$name@$amount@$details';
+      setState(() {
+        nameController.text=receiverName;
+        amountController.text=amount;
+        descriptionController.text=date;
+      });
     }
 
-    setState(() {
-      List<String> values = getTransData(recognizedText.text).split('@');
-      nameController.text=values[0];
-      amountController.text=values[1];
-      descriptionController.text=values[2];
-    });
 
+  }
+
+  String getTransData(String text){
+    String name='',amount='',details='';
+
+    if(text.contains('Google transaction ID')){ //GPay
+
+      List<String> parts=text.split('\n');
+
+      String receiver = '';
+      double money = 0;
+      String dateTime = '';
+
+      for(String part in parts){
+        if(receiver!='' && money!=0 && dateTime!='') break;
+        print('>>${part}<<');
+        // print('part.contains( am)='+part.contains(' am').toString());
+        // print('part.contains( pm)='+part.contains(' pm').toString());
+        // print('part.contains( To:)='+part.contains('To:').toString());
+        // print('text.contains(To )='+text.contains('To ').toString());
+
+        if (part.contains('To:') && text.contains("To ")) {
+          receiver=part.replaceFirst("To:","");
+        }
+        else if(part.contains('From:') && text.contains("From ")) {
+          receiver=part.replaceFirst("From:","");
+        }
+        else if (RegExp(r'\d').hasMatch(part) && money==0) {
+          String cleanedInput = part.replaceAll(',', ''); // Remove commas
+          cleanedInput = cleanedInput.replaceAll('O', '0'); // Replace 'O' with '0'
+          cleanedInput = cleanedInput.replaceAll('?', ''); // Remove ?
+          String currencyStr=double.tryParse(cleanedInput).toString();
+          if(currencyStr!='null'){
+            double temp=double.parse(currencyStr);
+            if(temp<999999) money=temp;
+          }
+        } else if (part.contains(' am') || part.contains(' pm')) {
+          dateTime = part;
+        }
+      }
+      amount=money.toString();
+      name=receiver;
+      details=dateTime;
+
+    }else if(text.contains('Transaction Successful')){ //PhonePay
+      List<String> parts=text.split('\n');
+      //print("part->"+parts[3]);
+
+      for(String part in parts){
+        if(part.contains(" AM") || part.contains(" PM") ||
+            part.contains(" am") || part.contains(" pm")){
+          details=part;
+          break;
+        }
+      }
+      name=parts[3];
+      //details=parts[2];
+      amount=parts[parts.length-1];
+
+    }
+    print('GOT Values----->$name@$amount@$details');
+    return '$name@$amount@$details';
   }
 
   @override
